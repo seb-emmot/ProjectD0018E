@@ -3,12 +3,14 @@ session_start();
 ?>
 <html>
 <body>
-<?php
-include 'connect.php';
-$sql = "SELECT username FROM account WHERE UNIQUE_ID=1 LIMIT 1";
-$account = mysql_query($sql);
-echo $account;
 
-?>
+<form action="loginprocess.php" method="post">
+Enter your account information to login:<br>
+Name: <input type="text" name="name"><br>
+Password: <input type="text" name="password"><br>
+<input type="submit">
+</form>
+
+Don't have an account? <a href="Registration.php">Register Here</a>
 </body>
 </html>
