@@ -1,11 +1,6 @@
 <html>
 <body>
-<?php
-echo "asdasd";
-echo "hello world!<br>" ;
-
-
-?>
+<a href="login.php">Login</a>
 
 </body>
 </html>
