@@ -1,6 +1,15 @@
 <html>
+<?php include 'HTMLelements/header.php';?>
 <body>
-<a href="login.php">Login</a>
-
+	<div id="pagewrapper">
+			<div id="header">
+			</div>
+			<div id="wrapper">
+				<?php include 'HTMLelements/header_meny.php';?>		
+				<div id="main">
+					This is main
+				</div>
+			</div>
+	</div>
 </body>
 </html>
