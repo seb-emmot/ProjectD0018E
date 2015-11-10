@@ -27,7 +27,8 @@ background:url(img/sliderback.png) top repeat-x;
 }
 
 #header{
-min-width: 960px;
+background: red;
+min-width: 1020px;
 height:100px;
 margin:0 auto;
 border-bottom: 1px solid black;
@@ -44,7 +45,7 @@ border-bottom: 1px solid black;
 #nav-bar{
 list-style-type:none;
 margin: 0 auto;
-width: 960px;
+width: 1020px;
 }
 
 #nav-bar li{
@@ -86,7 +87,7 @@ margin:0 auto;
 
 #main{
 background:white;
-width:960px;
+width:1020px;
 height:1000px;
 margin:0 auto;
 border-top: 0px solid gray;
@@ -97,8 +98,12 @@ opacity: 0.9;
 
 }
 
+#footer{
+min-
+}
+
 #pagewrapper{
-background: url(img/background.png) top repeat-x;
+background: white;
 }
 
 #loginbox {

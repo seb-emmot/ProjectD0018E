@@ -10,6 +10,9 @@
 					This is main
 				</div>
 			</div>
+			<div id="footer">
+				footer
+			</div>
 	</div>
 </body>
 </html>

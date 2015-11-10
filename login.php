@@ -23,6 +23,9 @@ session_start();
 					</div>
 				</div>
 			</div>
+			<div id="footer">
+				footer
+			</div>
 	</div>
 </body>
 </html>
