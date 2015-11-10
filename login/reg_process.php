@@ -1,18 +1,18 @@
 <html>
-	<?php include 'HTMLelements/header.php';?>
+	<?php include '../HTMLelements/header.php';?>
 <body>
 	<div id="pagewrapper">
 			<div id="header">
 			</div>
 			<div id="wrapper">
-				<?php include 'HTMLelements/header_meny.php';?>		
+				<?php include '../HTMLelements/header_meny.php';?>		
 				<div id="main">
 					<div id="loginbox">
 						<?php 
 							$name = $_POST["name"];
 							$userpassword = $_POST["password"];
 							
-							include 'connect.php';
+							include '../resources/connect.php';
 							$sql_name_avaliable = "SELECT * FROM account WHERE username='$name'";
 							$names = $conn->query($sql_name_avaliable);
 							$rows = $names->num_rows;

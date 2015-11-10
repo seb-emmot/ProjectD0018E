@@ -1,14 +1,14 @@
 <html>
-<?php include 'HTMLelements/header.php';?>
+<?php include '../HTMLelements/header.php';?>
 <body>
 	<div id="pagewrapper">
 			<div id="header">
 			</div>
 			<div id="wrapper">
-				<?php include 'HTMLelements/header_meny.php';?>		
+				<?php include '../HTMLelements/header_meny.php';?>		
 				<div id="main">
 					<?php
-						include 'connect.php';
+						include '../resources/connect.php';
 						$name = $_POST["name"];
 						$userpassword = $_POST["password"];
 						$sql = "SELECT * FROM account WHERE password='$userpassword' AND username='$name'";
