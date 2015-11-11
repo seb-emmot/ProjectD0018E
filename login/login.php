@@ -9,6 +9,12 @@
 				<?php include '../HTMLelements/header_meny.php';?>		
 				<div id="main">
 					<div id="loginbox">
+						<?php 
+						if((isset($_SESSION["login_text"]))) {
+							echo $_SESSION["login_text"];
+							unset($_SESSION["login_text"]);
+						}
+						?>
 						<form action="loginprocess.php" method="post">
 						Enter your account information to login:<br>
 						Name:<br> <input type="text" name="name"><br>

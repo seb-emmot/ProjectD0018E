@@ -1,13 +1,4 @@
 <?php session_start(); ?>
-<html>
-	<?php include '../HTMLelements/head.php';?>
-<body>
-	<div id="pagewrapper">
-			<?php include '../HTMLelements/header.php'?>
-			<div id="wrapper">
-				<?php include '../HTMLelements/header_meny.php';?>		
-				<div id="main">
-					<div id="loginbox">
 						<?php 
 							$name = $_POST["name"];
 							$userpassword = $_POST["password"];
@@ -17,25 +8,15 @@
 							VALUES ('$name', '$userpassword')";
 								
 							if ($conn->query($sql) === TRUE) {
-								echo "New Account created successfully";
-								echo "Welcome $name;<br>";
-								echo "Password is: $userpassword;<br>";
+								$_SESSION["login_text"] = "New account created! Log in below.\n";
+								header("Location: login.php");
+								die();
+							
 							} else {
-								echo "Username already taken.";
-							}
-							
-							
-							
+								$_SESSION["registration_text"] = "Username already taken, choose another.\n";
+								header("Location: registration.php");
+								die();
+								
+							}	
 						?>
-						<br>
-						go to <a href="registration.php">registration</a> page, or <br>
-						go to <a href="login.php">login</a> page
-					</div>
-				</div>
-			</div>
-			<div id="footer">
-				footer
-			</div>
-	</div>
-</body>
-</html>
+						
