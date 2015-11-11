@@ -111,6 +111,7 @@ background: white;
 
 #loginbox {
 	background: lightgray;
+	border-radius: 10px;
 	width: 400px;
 	position: absolute;
 	left: 50%;
@@ -119,4 +120,31 @@ background: white;
 	transform: translate(-50%);
 	padding: 10px;
 	border:1px solid gray;
+}
+
+#header-container {
+	width: 1020px;
+	margin: 0 auto;
+}
+
+#identitybox {
+	font-family: 'arial', sans-serif;
+	font-size: 10px;
+	background: white;
+	border-radius: 5px;
+	margin-top: 10px;
+	padding: 4px 8px 4px 8px;
+	float: right;
+}
+
+#identitybox a.ib:link {
+	text-decoration: none;
+	color:gray;
+}
+#identitybox a.ib:visited {
+	color:gray;
+}
+#identitybox a.ib:hover {
+	text-decoration: none;
+	color:red;
 }
