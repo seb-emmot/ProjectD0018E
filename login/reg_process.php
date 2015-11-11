@@ -13,25 +13,17 @@
 							$userpassword = $_POST["password"];
 							
 							include '../resources/connect.php';
-							$sql_name_avaliable = "SELECT * FROM account WHERE username='$name'";
-							$names = $conn->query($sql_name_avaliable);
-							$rows = $names->num_rows;
-							if ($rows == 1){
-								echo "username is already taken!";
+							$sql = "INSERT INTO account (username, password)
+							VALUES ('$name', '$userpassword')";
 								
+							if ($conn->query($sql) === TRUE) {
+								echo "New Account created successfully";
+								echo "Welcome $name;<br>";
+								echo "Password is: $userpassword;<br>";
+							} else {
+								echo "Username already taken.";
 							}
-							else{
-								$sql = "INSERT INTO account (username, password)
-								VALUES ('$name', '$userpassword')";
-								
-								if ($conn->query($sql) === TRUE) {
-									echo "New Account created successfully";
-									echo "Welcome $name;<br>";
-									echo "Password is: $userpassword;<br>";
-								} else {
-									echo "Error: " . $sql . "<br>" . $conn->error;
-								}
-							}
+							
 							
 							
 						?>
