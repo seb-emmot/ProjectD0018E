@@ -1,19 +1,34 @@
-# ProjectD0018E
+# ProjectD0018E Backlog
 e-commerce site.
+authors: Sebastian Emmot & Hannes Edvartsen
 
--Feature List-
-- User registration & login System
-	- user orders
+## Feature List
 
-- Shopping cart system
+#### User System
+	- Registration & Login
+	- Personal profile
+		- Previous orders
+
+#### Shopping cart system
 	- remembers users carts
-- Checkout system
-	- "Payment" system
-	- process order
-	- Confirmation of order (through email?)
+	- checkout
+		- "payment" system
+		- email confirmation
 	
-- Admin system
-	- add and remove items & stock
-	- remove users
+#### Product system
+	- Categories
+	- Filtering & Sorting
+	- Search system
+	- Suggestions
+	
+#### Administration system
+	- add and remove products & stock
+	- edit products
+	- remove users (deactivate?)
 
-- more to come
+## References
+
+#### Collaborators & Discussion
+- William & Jonas
+
+
