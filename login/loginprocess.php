@@ -10,7 +10,7 @@
 		if ($rows == 1){
 			//confirmed.. establish session variables for user
 			$info = $account->fetch_assoc();
-			$_SESSION["id"] = info["user_id"];
+			$_SESSION["id"] = $info["user_id"];
 			$_SESSION["username"] = $name;
 			$_SESSION["logged_in"] = true;
 			header("Location: ../user/profile.php");
