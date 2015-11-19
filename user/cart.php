@@ -7,7 +7,7 @@
 			<div id="wrapper">
 				<?php include '../HTMLelements/header_meny.php';?>		
 				<div id="main">
-					<div id="cart_view">
+					<div class="cartView">
 						hej
 					</div>
 					<?php 
@@ -23,8 +23,10 @@
 							$sql_products= "SELECT * FROM PRODUCTS WHERE item_id = " . $row["item_id"];
 							$products = $conn->query($sql_products);
 							$specs = $products->fetch_assoc();
-							echo "name: " . $specs["name"] . "\t item-id: " . $row["item_id"] . "\t quantity: " .$row["quantity"] . "\t price: " . $specs["price"] ."\n";
-								
+							echo '<div class="cartView"> name:' . $specs["name"] . '</div>';
+							echo '<div class="cartView"> item-id:'. $row["item_id"].'</div>';
+							echo '<div class="cartView"> quantity:'. $row["quantity"].'</div>';
+							echo '<div class="cartView"> price:'. $specs["price"].'</div>';
 						}
 						
 					}
