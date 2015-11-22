@@ -9,9 +9,6 @@
 		<div id="wrapper">
 			<?php include '../HTMLelements/header_meny.php';?>		
 			<div id="main">
-				<div class="productBox">
-					<a href="item.php?product=1"><img alt="Image" src="testcat1/1/img/default.png"></a>
-				</div>
 				<?php 					
 					function printProduct($itemID, $conn) {						
 						$sql = "SELECT * FROM `products` WHERE item_id = ".$itemID;
@@ -20,13 +17,22 @@
 						
 						echo '	<div class="productBox">
 								<a href="item.php?product='.$itemID.'"><img alt="Image" src="'.$item["category"].'/'.$itemID.'/img/default.png"></a>
+								<div id="infoBox">
+									<h1>'.$item["name"].'</h1>
+									<h2>Price: $'.$item["price"].'</h2>
+									<h2>Stock: '.$item["stock"].'</h2>
+									<a href=""><div class="productBoxBuyButton"></div></a>
+								</div>
+
 								</div>';
 					}
 					
 					include '../resources/connect.php';
 					
-					for($i=1; $i<6; $i++) {
-						printProduct($i, $conn);
+					$sql = "SELECT `item_id` FROM `PRODUCTS` WHERE category = 'testcat1'";
+					$itemList = $conn->query($sql);
+					while($itemListRow = $itemList->fetch_assoc()) {
+							printProduct($itemListRow["item_id"], $conn);
 					}
 				?>
 			</div>

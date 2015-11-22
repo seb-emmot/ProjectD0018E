@@ -18,6 +18,7 @@
 					echo '
 					<div class="productPage">
 						<img alt="image" src="'.$item["category"].'/'.$itemID.'/img/default.png">
+						<h3>'.$item["name"].'</h3>
 						<p class="productDescr">';
 					$inc = $item["category"].'/'.$itemID.'/descr.php';
 					include "$inc";

@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `e-commerce`.`ACCOUNTS` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `e_mail` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `reg_date` DATE NULL DEFAULT CURRENT_TIMESTAMP,
+  `reg_date` DATE NULL DEFAULT NULL,
   `fname` VARCHAR(45) NULL DEFAULT NULL,
   `lname` VARCHAR(45) NULL DEFAULT NULL,
   `address` VARCHAR(45) NULL DEFAULT NULL,
@@ -126,3 +126,17 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+-- Adding products to Database
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "onion", "10", "5");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "garlic", "20", "4");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "mustard", "54", "7");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "tomato", "33", "2");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "cheese", "26", "9");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "cucumber", "12", "22");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "squash", "33", "2");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "pizza", "26", "9");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "mozzarella", "12", "22");
+
+

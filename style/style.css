@@ -177,11 +177,47 @@ background: white;
 }
 
 .productBox {
-	background: red;
-	width: 251px;
-	height: 200px;
+	background: lightgray;
+	width: 326px;
+	height: 160px;
 	float:left;
 	margin: 2px 2px 2px 2px;
+	border-radius: 10px;
+	padding: 5px 5px 5px 5px;
+}
+
+.productBox img {
+	width: 160px;
+	height: 160px;
+	float:left;
+}
+
+.productBox h1, h2 {
+	font-family: "Arial", sans-serif;
+	font-size:18px;
+	margin-left: 0px;
+	float: top;
+}
+
+.productBox #infoBox {
+	float:top;
+	margin-left: 180px;
+	margin-top: 10px;
+}
+
+.qtyFORM {
+	width:40px;
+}
+
+.productBoxBuyButton {
+	background:red;
+	width: 50px;
+	height: 20px;
+	float:top;
+}
+
+.productBoxQuantityField {
+	background:gray;
 }
 
 .productPage {
@@ -199,3 +235,5 @@ background: white;
 	float:left;
 
 }
+
+
