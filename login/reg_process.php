@@ -4,7 +4,7 @@
 							$userpassword = $_POST["password"];
 							
 							include '../resources/connect.php';
-							$sql = "INSERT INTO account (username, password)
+							$sql = "INSERT INTO ACCOUNTS (e_mail, password)
 							VALUES ('$name', '$userpassword')";
 								
 							if ($conn->query($sql) === TRUE) {
@@ -13,9 +13,10 @@
 								die();
 							
 							} else {
-								$_SESSION["registration_text"] = "Username already taken, choose another.\n";
+								$_SESSION["registration_text"] = "E-mail already exists, choose another.\n";
 								header("Location: registration.php");
 								die();
+								
 								
 							}	
 						?>

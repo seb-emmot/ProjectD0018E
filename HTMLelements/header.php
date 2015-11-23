@@ -27,5 +27,6 @@
 		?>
 		
 		</div>
+		<div id="notificationPopup">Product Added to Cart!</div>
 	</div>
 </div>

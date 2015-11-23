@@ -4,28 +4,33 @@ authors: Sebastian Emmot & Hannes Edvartsen
 
 ## Feature List
 
-#### User System
-	- Registration & Login
-	- Personal profile
-		- Previous orders
+#### User System [H]
+	- Registration & Login [H] - Done
+	- Personal profile [M]
+		- Previous orders [L]
 
-#### Shopping cart system
-	- remembers users carts
-	- checkout
-		- "payment" system
-		- email confirmation
+#### Shopping cart system [H]
+	- Cart [H]
+		- Displays Cart [H]
+		- Add items to cart [H]
+	- remember users carts[M]
+	- checkout [M]
+		- process order [H]
+		- "payment" system [L]
+		- email confirmation [L]
 	
-#### Product system
-	- Categories
-	- Filtering & Sorting
-	- Search system
-	- Suggestions
+#### Product system [H]
+	- Contains & Displays Products [H]
+	- Categories [M]
+	- Filtering & Sorting [L]
+	- Search system [L]
+	- Suggestions [ÜL]
 	
-#### Administration system
-	- add and remove products & stock
-	- edit products
-	- remove users (deactivate?)
-
+#### Administration system [M]
+	- add and remove products & stock [L]
+	- edit products [M]
+	- remove users (deactivate?) [L]
+	
 ## References
 
 #### Collaborators & Discussion
