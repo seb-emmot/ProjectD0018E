@@ -171,9 +171,24 @@ background: white;
 
 
 .cartView{
-	width:251px;
+	width:25%;
+	height:25px;
 	float:left;
-	border:0px 0px 5px 0px solid black;
+	border-bottom:2px solid black;
+}
+
+.cartPrice{
+	width:19%;
+	height:25px;
+	float:left;
+	border-bottom: 2px solid black;
+}
+
+.cartDelete{
+	width:6%;
+	height:25px;
+	float:left;
+	border-bottom: 2px solid black;
 }
 
 .productBox {
