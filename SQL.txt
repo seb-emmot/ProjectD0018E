@@ -21,40 +21,23 @@ CREATE TABLE IF NOT EXISTS `e-commerce`.`ACCOUNTS` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `e_mail` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `reg_date` DATE NULL DEFAULT NULL,
+  `reg_date` DATE NULL,
   `fname` VARCHAR(45) NULL DEFAULT NULL,
   `lname` VARCHAR(45) NULL DEFAULT NULL,
   `address` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`),
-  UNIQUE INDEX `e_mail_UNIQUE` (`e_mail` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `e-commerce`.`CART`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `e-commerce`.`CART` (
-  `cart_id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  PRIMARY KEY (`cart_id`),
-  UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC),
-  CONSTRAINT `user_cart`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `e-commerce`.`ACCOUNTS` (`user_id`)
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION)
+  UNIQUE INDEX `e-mail_UNIQUE` (`e_mail` ASC))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `e-commerce`.`PRODUCTS`
--- Contains all products avaliable
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `e-commerce`.`PRODUCTS` (
   `item_id` INT NOT NULL AUTO_INCREMENT,
-  `category` VARCHAR(45) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `price` INT NOT NULL,
+  `category` VARCHAR(45) NOT NULL,
   `stock` INT NOT NULL,
   PRIMARY KEY (`item_id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC))
@@ -63,23 +46,22 @@ ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `e-commerce`.`CART_ITEMS`
--- Contains relationship for what items belong to what cart and number of them
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `e-commerce`.`CART_ITEMS` (
-  `cart_id` INT NOT NULL,
+  `user_id` INT NOT NULL,
   `item_id` INT NOT NULL,
   `quantity` INT NOT NULL,
-  PRIMARY KEY (`cart_id`),
-  INDEX `item_item_idx` (`item_id` ASC),
-  CONSTRAINT `cart_cart`
-    FOREIGN KEY (`cart_id`)
-    REFERENCES `e-commerce`.`CART` (`cart_id`)
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION,
-  CONSTRAINT `item_item`
+  PRIMARY KEY (`user_id`, `item_id`),
+  INDEX `item-item_idx` (`item_id` ASC),
+  CONSTRAINT `item-item`
     FOREIGN KEY (`item_id`)
     REFERENCES `e-commerce`.`PRODUCTS` (`item_id`)
     ON DELETE CASCADE
+    ON UPDATE NO ACTION,
+  CONSTRAINT `cart-user`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `e-commerce`.`ACCOUNTS` (`user_id`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -91,9 +73,10 @@ CREATE TABLE IF NOT EXISTS `e-commerce`.`ORDERS` (
   `order_id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
   `price` INT UNSIGNED NOT NULL,
+  `date` DATETIME NULL,
   PRIMARY KEY (`order_id`),
-  INDEX `order_user_idx` (`user_id` ASC),
-  CONSTRAINT `order_user`
+  INDEX `order-user_idx` (`user_id` ASC),
+  CONSTRAINT `order-user`
     FOREIGN KEY (`user_id`)
     REFERENCES `e-commerce`.`ACCOUNTS` (`user_id`)
     ON DELETE NO ACTION
@@ -105,13 +88,14 @@ ENGINE = InnoDB;
 -- Table `e-commerce`.`ORDER_ITEMS`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `e-commerce`.`ORDER_ITEMS` (
-  `order_id` INT NOT NULL,
+  `oder_id` INT NOT NULL,
   `item_id` INT NOT NULL,
   `quantity` INT NOT NULL,
-  INDEX `order_order_idx` (`order_id` ASC),
-  INDEX `item_product_idx` (`item_id` ASC),
-  CONSTRAINT `order_order`
-    FOREIGN KEY (`order_id`)
+  INDEX `order-order_idx` (`oder_id` ASC),
+  INDEX `item-product_idx` (`item_id` ASC),
+  PRIMARY KEY (`oder_id`, `item_id`),
+  CONSTRAINT `order-order`
+    FOREIGN KEY (`oder_id`)
     REFERENCES `e-commerce`.`ORDERS` (`order_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -126,6 +110,7 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 
 -- Adding products to Database
