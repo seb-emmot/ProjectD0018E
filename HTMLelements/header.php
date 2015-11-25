@@ -15,7 +15,7 @@
 				echo 'Welcome '.$_SESSION["username"].'! | ';
 				echo '<a class="ib" href="/ProjectD0018E/user/profile.php">Profile</a>
 				|
-				<a class="ib" href="/ProjectD0018E/user/cart.php">Cart</a>
+				<a class="ib" id="cartLink" href="/ProjectD0018E/user/cart.php">Cart('.$_SESSION["itemsInCart"].')</a>
 				|
 				<a class="ib" href="/ProjectD0018E/login/logout.php">Logout</a>';
 			}

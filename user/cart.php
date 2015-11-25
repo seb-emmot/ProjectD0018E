@@ -2,6 +2,7 @@
 <html>
 <?php include '../HTMLelements/head.php';?>
 <body>
+	<script src="../Jscript/updateCartCounter.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$("#deleteShoppingCart").click(function(){
@@ -9,6 +10,7 @@
 					   url: "../SQLcalls/deleteWholeCart.php",
 					   success: function(){
 						 document.getElementById("main").innerHTML = "Shoppingcart deleted!";
+						 updateCartCounter(<?php echo $_SESSION["itemsInCart"];?>);
 					   }
 					 });
 				});
@@ -17,12 +19,12 @@
 		$(function(){
 			$(".deleteItem").click(function(){
 					var itemId = $(this).attr('id');
-					
 					$.ajax({
 					   url: "../SQLcalls/deleteFromCart.php",
 					   type: "GET",
 					   data: {itemid: itemId},
 					   success: function(isEmpty){
+						    updateCartCounter(<?php echo $_SESSION["itemsInCart"];?>);
 							if(isEmpty == "true"){
 								document.getElementById("main").innerHTML = "Shoppingcart deleted!";
 							}

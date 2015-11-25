@@ -13,6 +13,9 @@
 			$_SESSION["id"] = $info["user_id"];
 			$_SESSION["username"] = $name;
 			$_SESSION["logged_in"] = true;
+			$sql_cart_items = "SELECT * FROM cart_items WHERE user_id=".$_SESSION["id"];
+			$items = $conn->query($sql_cart_items);
+			$_SESSION["itemsInCart"] = $items->num_rows;
 			header("Location: ../user/profile.php");
 			die();
 		}

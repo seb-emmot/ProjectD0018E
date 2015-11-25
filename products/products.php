@@ -16,6 +16,8 @@
 						$item = $conn->query($sql);
 						$item = $item->fetch_assoc();
 						$itemName = $item["name"];
+						$itemsInCart = $_SESSION["itemsInCart"];
+						
 						
 						echo '	<div class="productBox">
 									<a href="item.php?product='.$itemID.'"><img alt="Image" src="'.$item["category"].'/'.$itemID.'/img/default.png">
@@ -25,7 +27,7 @@
 										<h2>Price: $'.$item["price"].'</h2>
 										<h2>Stock: '.$item["stock"].'</h2>
 										<a href="#none"><div class="productBoxBuyButton" onclick="';
-						echo 'addToCart('.$itemID.',\''.$itemName.'\')';
+						echo 'addToCart('.$itemID.',\''.$itemName.',\''.$itemsInCart.'\')';
 						echo ' ">BUY</div></a>
 									</div>
 								</div>';
