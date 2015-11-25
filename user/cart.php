@@ -6,7 +6,7 @@
 		$(function(){
 			$("#deleteShoppingCart").click(function(){
 					$.ajax({
-					   url: "../SQLcalls/delete_whole_cart.php",
+					   url: "../SQLcalls/deleteWholeCart.php",
 					   success: function(){
 						 document.getElementById("main").innerHTML = "Shoppingcart deleted!";
 					   }
@@ -19,7 +19,7 @@
 					var itemId = $(this).attr('id');
 					
 					$.ajax({
-					   url: "../SQLcalls/delete_from_cart.php",
+					   url: "../SQLcalls/deleteFromCart.php",
 					   type: "GET",
 					   data: {itemid: itemId},
 					   success: function(data){

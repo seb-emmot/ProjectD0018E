@@ -1,25 +1,27 @@
-function addToCart(itemId) {
+var popupTimer;
+
+function addToCart(itemId, itemName) {
 	$.ajax({
 		   url: "../SQLcalls/addToCart.php",
 		   type: "GET",
 		   data: {itemid: itemId},
 		   success: function(){
-			   productAdded();
+			   addNotification(itemName);
 		   }
 		 });
 }
 
-function productAdded() {
+function addNotification(message) {
+	clearTimeout(popupTimer);
 	var x = document.getElementById("notificationPopup");
-	if(x.style.opacity == "1") {
-	}
-	else {
-		x.style.transition = "none";
-		x.style.opacity = "1";
-		setTimeout(function(){fadeout(x);}, 2000);
-	}
+	var y = message;
+	x.innerHTML = "added "+y;
+	x.style.transition = "transform .3s ease-out";
+	x.style.transform = "translate(0, 0px)";
+	popupTimer = setTimeout(function(){fadeout(x);}, 2000);
+
 }
 function fadeout(x) {
-	x.style.transition = "opacity 1.5s ease-out";
-	x.style.opacity = "0";
+	x.style.transition = "transform 2.0s ease-out";
+	x.style.transform = "translate(0, -40px)";
 }

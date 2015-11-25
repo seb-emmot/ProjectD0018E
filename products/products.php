@@ -15,6 +15,7 @@
 						$sql = "SELECT * FROM `products` WHERE item_id = ".$itemID;
 						$item = $conn->query($sql);
 						$item = $item->fetch_assoc();
+						$itemName = $item["name"];
 						
 						echo '	<div class="productBox">
 									<a href="item.php?product='.$itemID.'"><img alt="Image" src="'.$item["category"].'/'.$itemID.'/img/default.png">
@@ -23,7 +24,9 @@
 										<h1>'.$item["name"].'</h1>
 										<h2>Price: $'.$item["price"].'</h2>
 										<h2>Stock: '.$item["stock"].'</h2>
-										<a href="#"><div class="productBoxBuyButton" onclick="addToCart('.$itemID.')">BUY</div></a>
+										<a href="#none"><div class="productBoxBuyButton" onclick="';
+						echo 'addToCart('.$itemID.',\''.$itemName.'\')';
+						echo ' ">BUY</div></a>
 									</div>
 								</div>';
 					}
@@ -32,15 +35,13 @@
 					
 					$sql = "SELECT `item_id` FROM `PRODUCTS` WHERE category = 'testcat1'";
 					$itemList = $conn->query($sql);
-					while($itemListRow = $itemList->fetch_assoc()) {
+					while($itemListRow = $itemList->fetch_assoc()) { //Loops through all entries in Table and prints them
 							printProduct($itemListRow["item_id"], $conn);
 					}
 				?>
 			</div>
 		</div>
-		<div id="footer">
-			footer
-		</div>
+		<?php include '../HTMLelements/footer.php';?>
 	</div>
 </body>
 </html>

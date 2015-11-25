@@ -257,6 +257,10 @@ background: white;
 
 }
 
+#footer {
+	text-align: center;
+}
+
 #notificationPopup {
 	font-family: 'arial', sans-serif;
 	padding-top: 5px;
@@ -270,8 +274,10 @@ background: white;
 	z-index: 10;
 	pointer-events: none;
 	border-radius: 0 0 10px 10px;
-	opacity: 0;
+	opacity: 1;
 	transition: opacity 1s ease-out;
+	overflow: hidden;
+	transform: translate(0, -40px);
 }
 
 
