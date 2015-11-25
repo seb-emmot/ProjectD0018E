@@ -22,10 +22,8 @@
 					   url: "../SQLcalls/deleteFromCart.php",
 					   type: "GET",
 					   data: {itemid: itemId},
-					   success: function(data){
-						   //var obj = jQuery.parseJSON(data);
-						   alert(data);
-							if(data == "true"){
+					   success: function(isEmpty){
+							if(isEmpty == "true"){
 								document.getElementById("main").innerHTML = "Shoppingcart deleted!";
 							}
 							else{
