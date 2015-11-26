@@ -9,9 +9,9 @@ $_SESSION["itemsInCart"] = $_SESSION["itemsInCart"] - 1;
 $sql= "SELECT * FROM cart_items WHERE user_id = '$u_id'";
 $items = $conn->query($sql);
 if ($items->num_rows == 0){
-	echo json_encode(true);
+	echo json_encode(array(true, $_SESSION["itemsInCart"]));
 }
 else {
-	echo json_encode(false);
+	echo json_encode(array(false, $_SESSION["itemsInCart"]));
 }
 ?>

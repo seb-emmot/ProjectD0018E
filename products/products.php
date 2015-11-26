@@ -10,13 +10,13 @@
 			<?php include '../HTMLelements/header_meny.php';?>		
 			<div id="main">
 				<script src="../Jscript/addToCart.js"></script>
+				<script src="../Jscript/updateCartCounter.js"></script>
 				<?php 					
 					function printProduct($itemID, $conn) {						
 						$sql = "SELECT * FROM `products` WHERE item_id = ".$itemID;
 						$item = $conn->query($sql);
 						$item = $item->fetch_assoc();
 						$itemName = $item["name"];
-						$itemsInCart = $_SESSION["itemsInCart"];
 						
 						
 						echo '	<div class="productBox">
@@ -26,8 +26,8 @@
 										<h1>'.$item["name"].'</h1>
 										<h2>Price: $'.$item["price"].'</h2>
 										<h2>Stock: '.$item["stock"].'</h2>
-										<a href="#none"><div class="productBoxBuyButton" onclick="';
-						echo 'addToCart('.$itemID.',\''.$itemName.',\''.$itemsInCart.'\')';
+										<a id="'.$itemID.'" href="#none"><div class="productBoxBuyButton" onclick="';
+						echo 'addToCart('.$itemID.',\''.$itemName.'\')';
 						echo ' ">BUY</div></a>
 									</div>
 								</div>';
