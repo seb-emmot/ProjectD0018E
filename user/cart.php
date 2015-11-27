@@ -3,39 +3,9 @@
 <?php include '../HTMLelements/head.php';?>
 <body>
 	<script src="../Jscript/updateCartCounter.js"></script>
-	<script type="text/javascript">
-	function deleteItem(itemId){
-		$.ajax({
-			   url: "../SQLcalls/deleteFromCart.php",
-			   type: "GET",
-			   data: {itemid: itemId},
-			   dataType: "json",
-			   success: function(data){
-				    updateCartCounter(data[1]);
-					if(data[0] == true){
-						document.getElementById("main").innerHTML = "Shoppingcart deleted!";
-					}
-					else{
-						var element = document.getElementById("div"+itemId);
-						element.parentNode.removeChild(element);
-					}
-					   
-				   
-			   }
-			 });
-	}
-	function deleteWholeCart(){
-		$.ajax({
-			   url: "../SQLcalls/deleteWholeCart.php",
-			   dataType: "json",
-			   success: function(items){
-				 document.getElementById("main").innerHTML = "Shoppingcart deleted!";
-				 updateCartCounter(items);
-			  }
-		});
-	}
+	<script src="../Jscript/deleteFromCart.js"></script>
+	<script src="../Jscript/deleteWholeCart.js"></script>
 	
-	</script>
 	<div id="pagewrapper">
 			<?php include '../HTMLelements/header.php'?>
 			<div id="wrapper">
@@ -60,10 +30,11 @@
 									<div class="cartView"> '. $specs["name"] . '</div>';
 							echo '<div class="cartView"> '. $row["item_id"].'</div>';
 							echo '<div class="cartView"> '. $row["quantity"].'</div>';
-							echo '<div class="cartPrice"> '. $specs["price"].'</div>';
-							echo '<div class="cartDelete" ><button class="deleteItem" type="button" id="'.$row["item_id"].'">remove</button></div></div>';
+							echo '<div class="cartPrice"> $'. $specs["price"].'</div>';
+							echo '<div class="cartDelete" ><a class="productButton" href="#none"><div id="'.$row["item_id"].'" class="productBoxBuyButton">Remove</div></a></div></div>';
+							
 							echo '<script>document.getElementById("'.$row["item_id"].'").addEventListener("click", function() {
-    									deleteItem('.$row["item_id"].');
+    									deleteFromCart('.$row["item_id"].');
 									}, false);</script>';
 						}
 						echo '<button id="deleteWholeCart" type="button" data-role="button">Clear shopping-cart</button>';

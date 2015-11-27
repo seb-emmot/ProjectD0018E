@@ -15,7 +15,11 @@
 			$_SESSION["logged_in"] = true;
 			$sql_cart_items = "SELECT * FROM cart_items WHERE user_id=".$_SESSION["id"];
 			$items = $conn->query($sql_cart_items);
-			$_SESSION["itemsInCart"] = $items->num_rows;
+			$numOfItems = 0;
+			while ($row = $items->fetch_assoc()){
+				$numOfItems = $numOfItems + $row["quantity"];
+			}
+			$_SESSION["itemsInCart"] = $numOfItems;
 			header("Location: ../user/profile.php");
 			die();
 		}
