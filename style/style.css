@@ -86,7 +86,8 @@ margin:0 auto;
 
 #main{
 background:white;
-width:1020px;
+min-width:520px;
+max-width:1020px;
 min-height: 100%;
 margin:0 auto;
 border-top: 0px solid gray;
@@ -109,19 +110,6 @@ float:top;
 
 #pagewrapper{
 background: white;
-}
-
-#loginbox {
-	background: lightgray;
-	border-radius: 10px;
-	width: 400px;
-	position: absolute;
-	left: 50%;
-	margin-right: -50%;
-	margin-top:20px;
-	transform: translate(-50%);
-	padding: 10px;
-	border:1px solid gray;
 }
 
 #header-container {
@@ -168,105 +156,35 @@ background: white;
 	text-decoration: none;
 	color:red;
 }
-
-
 .cartView{
 	width:25%;
 	height:25px;
 	float:left;
 	border-bottom:2px solid black;
 }
-
 .cartPrice{
 	width:19%;
 	height:25px;
 	float:left;
 	border-bottom: 2px solid black;
 }
-
 .cartDelete{
 	width:6%;
 	height:25px;
 	float:left;
 	border-bottom: 2px solid black;
 }
-
-.productBox {
-	background: lightgray;
-	width: 326px;
-	height: 160px;
-	float:left;
-	margin: 2px 2px 2px 2px;
-	border-radius: 10px;
-	padding: 5px 5px 5px 5px;
-}
-
-.productBox img {
-	width: 160px;
-	height: 160px;
-	float:left;
-}
-
-.productBox h1, h2 {
-	font-family: "Arial", sans-serif;
-	font-size:18px;
-	margin-left: 0px;
-	float: top;
-}
-
-.productBox #infoBox {
-	float:top;
-	margin-left: 180px;
-	margin-top: 10px;
-}
-
 .qtyFORM {
 	width:40px;
 }
-
-.productBoxBuyButton {
-	border-radius: 5px;
-	background:red;
-	min-width: 50px;
-	height: 20px;
-	float:top;
-}
-.productBoxBuyButton:hover {
-	background: blue;
-}
-
 #infoBox a {
 	font-family: 'impact', sans-serif;
 	text-decoration: none;
 	text-align: center;
 }
-
-.productButton {
-	font-family: 'impact', sans-serif;
-	text-decoration: none;
-	text-align: center;
-}
-
-.productPage {
-	background:gray;
-	width:inherit;
-	height:inherit;
-	float:left;
-}
-
-.productPage img {
-	float:left;
-}
-
-.productDescr {
-	float:left;
-
-}
-
 #footer {
 	text-align: center;
 }
-
 #notificationPopup {
 	font-family: 'arial', sans-serif;
 	padding-top: 5px;
@@ -285,5 +203,3 @@ background: white;
 	overflow: hidden;
 	transform: translate(0, -40px);
 }
-
-

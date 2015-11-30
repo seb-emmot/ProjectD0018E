@@ -19,7 +19,7 @@
 						$itemName = $item["name"];
 						
 						
-						echo '	<div class="productBox">
+						echo '	<div id="product#'.$itemName.'" class="productBox">
 									<a href="item.php?product='.$itemID.'"><img alt="Image" src="'.$item["category"].'/'.$itemID.'/img/default.png">
 									</a>
 									<div id="infoBox">

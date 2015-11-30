@@ -20,10 +20,21 @@ function addNotification(message) {
 	x.innerHTML = "added "+y;
 	x.style.transition = "transform .3s ease-out";
 	x.style.transform = "translate(0, 0px)";
-	popupTimer = setTimeout(function(){fadeout(x);}, 2000);
-
+	
+	popupTimer = setTimeout(function(){fadeoutNotification(x);}, 2000);
 }
-function fadeout(x) {
+
+function fadeoutNotification(x) {
 	x.style.transition = "transform 2.0s ease-out";
 	x.style.transform = "translate(0, -40px)";
+	
 }
+
+/*z.style.transition = "scale 2.0s ease-out";
+ *z.style.transform = "scale(1.0,1.0)";
+ * 
+ * 
+ * 
+ * 
+ */
+
