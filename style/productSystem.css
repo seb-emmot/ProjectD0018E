@@ -36,9 +36,12 @@
 
 .productBoxBuyButton {
 	border-radius: 5px;
-	background:red;
+	background:red !important;
+	font-weight: normal !important;
+	padding-left: 2px;
+	padding-right: 2px;
 	min-width: 50px;
-	height: 20px;
+	min-height: 20px;
 	float:top;
 }
 

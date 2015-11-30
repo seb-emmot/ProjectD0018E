@@ -158,22 +158,36 @@ background: white;
 }
 .cartView{
 	width:25%;
-	height:25px;
+	min-height:25px;
 	float:left;
 	border-bottom:2px solid black;
 }
 .cartPrice{
 	width:19%;
-	height:25px;
+	min-height:25px;
 	float:left;
 	border-bottom: 2px solid black;
 }
 .cartDelete{
 	width:6%;
-	height:25px;
+	min-height:25px;
 	float:left;
 	border-bottom: 2px solid black;
 }
+
+#cartTotal{
+	background: grey;
+}
+#cartTotal div{
+	height: 60px;
+	background: lightgrey;
+	font-weight: bold;
+}
+#cartCheckout{
+	height: 25px;
+	float: left;
+}
+
 .qtyFORM {
 	width:40px;
 }
