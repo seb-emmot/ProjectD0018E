@@ -118,10 +118,10 @@ INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1",
 INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "garlic", "20", "4");
 INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "mustard", "54", "7");
 INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "tomato", "33", "2");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "cheese", "26", "9");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "cucumber", "12", "22");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "squash", "33", "2");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "pizza", "26", "9");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "cheese", "26", "9");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "cucumber", "12", "22");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "squash", "33", "2");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "pizza", "26", "9");
 INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "mozzarella", "12", "22");
 
 

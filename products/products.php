@@ -16,11 +16,10 @@
 						$sql = "SELECT * FROM `products` WHERE item_id = ".$itemID;
 						$item = $conn->query($sql);
 						$item = $item->fetch_assoc();
-						$itemName = $item["name"];
-						
+						$itemName = $item["name"];						
 						
 						echo '	<div id="product#'.$itemName.'" class="productBox">
-									<a href="item.php?product='.$itemID.'"><img alt="Image" src="'.$item["category"].'/'.$itemID.'/img/default.png">
+									<a href="item.php?product='.$itemID.'"><img alt="Image" src="'.$item["category"].'/'.$itemName.'/img/default.png">
 									</a>
 									<div id="infoBox">
 										<h1>'.$item["name"].'</h1>
@@ -33,9 +32,18 @@
 								</div>';
 					}
 					
-					include '../resources/connect.php';
+					$sql = "";
 					
-					$sql = "SELECT `item_id` FROM `PRODUCTS` WHERE category = 'testcat1'";
+					if(isset($_GET["category"])) {
+						$itemCategory = $_GET["category"];
+						$sql = "SELECT `item_id` FROM `PRODUCTS` WHERE category = '".$itemCategory."'";
+					}
+					else {
+						$sql = "SELECT `item_id` FROM `PRODUCTS` WHERE 1";
+					}
+					
+					include '../resources/connect.php';
+				
 					$itemList = $conn->query($sql);
 					while($itemListRow = $itemList->fetch_assoc()) { //Loops through all entries in Table and prints them
 							printProduct($itemListRow["item_id"], $conn);
