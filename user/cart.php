@@ -27,7 +27,7 @@
 							$sql_products= "SELECT * FROM PRODUCTS WHERE item_id = " . $row["item_id"];
 							$products = $conn->query($sql_products);
 							$specs = $products->fetch_assoc();
-							$totPrice = $totPrice + $specs["price"];
+							$totPrice = $totPrice + $specs["price"]*$row["quantity"];
 							echo '<div id="div'.$row["item_id"].'">
 									<div class="cartView"> '. $specs["name"] . '</div>';
 							echo '<div class="cartView"> '. $row["item_id"].'</div>';

@@ -7,7 +7,9 @@
 			<div id="wrapper">
 				<?php include '../HTMLelements/header_meny.php';?>		
 				<div id="main">
-					Confirm that theese are the items you want to order.<br>
+					<script src="../Jscript/checkoutCart.js"></script>
+					<script src="../Jscript/updateCartCounter.js"></script>
+					<div id="checkoutInfo">Confirm that theese are the items you want to order.</div><br>
 					<?php 
 					include '../resources/connect.php';
 					$sql = "SELECT * FROM cart_items WHERE user_id = " . $_SESSION["id"];
@@ -18,11 +20,12 @@
 					echo '<div class="cartView">Quantity:</div>';
 					echo '<div class="cartView">Price/unit:</div>';
 					$totPrice = 0;
+					
 					while ($row = $cart->fetch_assoc()){ //print out the items in cart
 						$sql_products= "SELECT * FROM PRODUCTS WHERE item_id = " . $row["item_id"];
 						$products = $conn->query($sql_products);
 						$specs = $products->fetch_assoc();
-						$totPrice = $totPrice + $specs["price"];
+						$totPrice = $totPrice + $specs["price"]*$row["quantity"];
 						echo '<div id="div'.$row["item_id"].'">
 								<div class="cartView"> '. $specs["name"] . '</div>';
 						echo '<div class="cartView"> '. $row["item_id"].'</div>';
@@ -38,9 +41,9 @@
 					echo '<div class="cartDelete" > </div></div>';
 						
 			
-					echo '<div id="cartCheckout"><a class="productButton" href="checkout.php"><div id="checkout" class="productBoxBuyButton">Confirm and pay</div></a></div>';
+					echo '<div id="cartCheckout"><a class="productButton" href="#none"><div id="checkout" class="productBoxBuyButton">Confirm and pay</div></a></div>';
 					echo '<script>document.getElementById("checkout").addEventListener("click", function() {
-    									checkoutCart();
+    									checkoutCart('.$totPrice.');
 									}, false);</script>';
 					
 					

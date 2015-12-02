@@ -209,6 +209,15 @@ background: white;
 	float: left;
 }
 
+#checkoutInfo{
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+		
+}
+
+
+
 .qtyFORM {
 	width:40px;
 }
