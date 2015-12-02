@@ -6,7 +6,10 @@
 		</div>
 		
 		<div id="searchfield">
-			
+			<form action="/ProjectD0018E/products/products.php" method="get">
+				<input class="searchfieldInput" type ="text" name="search">
+				<input class="searchfieldButton" type="submit">
+			</form>			
 		</div>
 		
 		<div id="identitybox">

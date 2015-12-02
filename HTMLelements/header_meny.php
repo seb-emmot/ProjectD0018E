@@ -1,4 +1,3 @@
-
 <div id="navigation">
 	<ul id="nav-bar">
 	<!--<li><a href="/ProjectD0018E/products/products.php"></a></li>

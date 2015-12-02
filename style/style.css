@@ -46,13 +46,13 @@ float:top;
 #nav-bar{
 list-style-type:none;
 margin: 0 auto;
-width: 1020px;
+width: 1040px;
 }
 
 #nav-bar li{
 float:left;
 height:30px;
-width:160px;
+min-width:173.3px;
 transition: background 0.2s ease-in-out;
 -webkit-transition: background 0.2s ease-in-out;
 -moz-transition: background 0.2s ease-in-out;
@@ -63,11 +63,11 @@ background: gray;
 }
 
 #nav-bar li a{
-font-family: 'impact', sans-serif;
 float:left;
+font-family: 'impact', sans-serif;
 padding: 5px 0;
 height:30px;
-width:160px;
+min-width:inherit;
 color:white;
 text-decoration: none;
 text-align:center;
@@ -127,12 +127,33 @@ background: white;
 #searchfield {
 	font-family: 'arial', sans-serif;
 	background: white;
+	border: 2px solid gray;
 	border-radius: 5px 10px 5px 10px;
 	margin: 70px 20px 0px 20px;
 	height: 30px;
 	min-width: 400px;
 	float: left;
-	
+}
+
+.searchfieldInput {
+	background: none;
+	font-size: 18px;
+	padding: 2px 4px 4px 4px;
+	border: none;
+	height:30px;
+	width: 340px;
+	border: none !important;
+}
+
+.searchfieldInput:active {
+	border:none;
+}
+
+.searchfieldButton {
+	width: 60px;
+	height:30px;
+	border-radius: 5px 10px 5px 10px;
+	border:none;
 }
 
 #identitybox {
@@ -217,3 +238,8 @@ background: white;
 	overflow: hidden;
 	transform: translate(0, -40px);
 }
+
+
+
+
+

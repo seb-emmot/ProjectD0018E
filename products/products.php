@@ -32,11 +32,20 @@
 								</div>';
 					}
 					
-					$sql = "";
-					
+					$sql = "";					
 					if(isset($_GET["category"])) {
 						$itemCategory = $_GET["category"];
 						$sql = "SELECT `item_id` FROM `PRODUCTS` WHERE category = '".$itemCategory."'";
+					}
+					elseif (isset($_GET["search"])) {
+						$itemSearch = $_GET["search"];
+						if ($itemSearch == "!all") {
+							$sql = "SELECT * FROM `products` WHERE 1";
+						}
+						else {
+							$sql = "SELECT * FROM `products` WHERE name LIKE '".$itemSearch."%'";
+						}
+						
 					}
 					else {
 						$sql = "SELECT `item_id` FROM `PRODUCTS` WHERE 1";
@@ -45,7 +54,10 @@
 					include '../resources/connect.php';
 				
 					$itemList = $conn->query($sql);
-					while($itemListRow = $itemList->fetch_assoc()) { //Loops through all entries in Table and prints them
+					if (($itemList->num_rows) < 1) {
+						echo "It seems like we do not have any products matching your criteria.";
+					}
+					while($itemListRow = $itemList->fetch_assoc()) { //Loops through all entries selected by SELECT and prints them
 							printProduct($itemListRow["item_id"], $conn);
 					}
 				?>
