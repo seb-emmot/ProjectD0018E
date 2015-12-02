@@ -7,7 +7,7 @@
 							$sql = "INSERT INTO ACCOUNTS (e_mail, password)
 							VALUES ('$name', '$userpassword')";
 								
-							if ($conn->query($sql) === TRUE) {
+							if ($conn->query($sql) == TRUE) {
 								$_SESSION["login_text"] = "New account created! Log in below.\n";
 								header("Location: login.php");
 								die();

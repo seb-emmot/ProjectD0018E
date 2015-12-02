@@ -1,0 +1,14 @@
+@CHARSET "ISO-8859-1";
+
+#loginbox {
+	background: lightgray;
+	border-radius: 10px;
+	width: 400px;
+	position: absolute;
+	left: 50%;
+	margin-right: -50%;
+	margin-top:20px;
+	transform: translate(-50%);
+	padding: 10px;
+	border:1px solid gray;
+}

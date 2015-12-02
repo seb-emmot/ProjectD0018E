@@ -10,9 +10,7 @@
 					This is profile
 				</div>
 			</div>
-			<div id="footer">
-				footer
-			</div>
+			<?php include '../HTMLelements/footer.php';?>
 	</div>
 </body>
 </html>

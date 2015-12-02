@@ -2,44 +2,10 @@
 <html>
 <?php include '../HTMLelements/head.php';?>
 <body>
-	<script type="text/javascript">
-		$(function(){
-			$("#deleteShoppingCart").click(function(){
-					$.ajax({
-					   url: "../SQLcalls/delete_whole_cart.php",
-					   success: function(){
-						 document.getElementById("main").innerHTML = "Shoppingcart deleted!";
-					   }
-					 });
-				});
-		});
-
-		$(function(){
-			$(".deleteItem").click(function(){
-					var itemId = $(this).attr('id');
-					
-					$.ajax({
-					   url: "../SQLcalls/delete_from_cart.php",
-					   type: "GET",
-					   data: {itemid: itemId},
-					   success: function(data){
-						   //var obj = jQuery.parseJSON(data);
-						   alert(data);
-							if(data == "true"){
-								document.getElementById("main").innerHTML = "Shoppingcart deleted!";
-							}
-							else{
-								var element = document.getElementById("div"+itemId);
-								element.parentNode.removeChild(element);
-							}
-							   
-						   
-					   }
-					 });
-				});
-		});
-		
-	</script>
+	<script src="../Jscript/updateCartCounter.js"></script>
+	<script src="../Jscript/deleteFromCart.js"></script>
+	<script src="../Jscript/deleteWholeCart.js"></script>
+	
 	<div id="pagewrapper">
 			<?php include '../HTMLelements/header.php'?>
 			<div id="wrapper">
@@ -56,18 +22,37 @@
 						echo '<div class="cartView">Item-id:</div>';
 						echo '<div class="cartView">Quantity:</div>';
 						echo '<div class="cartView">Price/unit:</div>';
+						$totPrice = 0;
 						while ($row = $cart->fetch_assoc()){ //print out the items in cart
 							$sql_products= "SELECT * FROM PRODUCTS WHERE item_id = " . $row["item_id"];
 							$products = $conn->query($sql_products);
 							$specs = $products->fetch_assoc();
+							$totPrice = $totPrice + $specs["price"]*$row["quantity"];
 							echo '<div id="div'.$row["item_id"].'">
 									<div class="cartView"> '. $specs["name"] . '</div>';
 							echo '<div class="cartView"> '. $row["item_id"].'</div>';
 							echo '<div class="cartView"> '. $row["quantity"].'</div>';
-							echo '<div class="cartPrice"> '. $specs["price"].'</div>';
-							echo '<div class="cartDelete" ><button class="deleteItem" type="button" id="'.$row["item_id"].'" data-role="button">remove</button></div></div>';
+							echo '<div class="cartPrice"> $'. $specs["price"].'</div>';
+							echo '<div class="cartDelete" ><a class="productButton" href="#none">
+									<div id="'.$row["item_id"].'" class="productBoxBuyButton">Remove</div></a></div></div>';
+							
+							echo '<script>document.getElementById("'.$row["item_id"].'").addEventListener("click", function() {
+    									deleteFromCart('.$row["item_id"].');
+									}, false);</script>';
 						}
-						echo '<button id="deleteShoppingCart" type="button" data-role="button">Clear shopping-cart</button>';
+						echo '<div id="cartTotal">
+									<div class="cartView"> Total:</div>';
+						echo '<div class="cartView">  </div>';
+						echo '<div class="cartView"> '.$_SESSION["itemsInCart"].'</div>';
+						echo '<div class="cartPrice"> $'. $totPrice.'</div>';
+						echo '<div class="cartDelete" ><a class="productButton" href="#none"><div id="delCart" class="productBoxBuyButton">Delete whole cart</div></a></div></div>';
+							
+						echo '<script>document.getElementById("delCart").addEventListener("click", function() {
+    									deleteWholeCart();
+									}, false);</script>';
+						
+			
+						echo '<div id="cartCheckout"><a class="productButton" href="checkout.php"><div id="checkout" class="productBoxBuyButton">Checkout Cart</div></a></div>';
 						
 					}
 					else {
@@ -80,9 +65,7 @@
 					
 				</div>
 			</div>
-			<div id="footer">
-				footer
-			</div>
+			<?php include '../HTMLelements/footer.php';?>
 	</div>
 </body>
 </html>

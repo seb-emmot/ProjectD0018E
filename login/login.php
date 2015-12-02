@@ -15,7 +15,7 @@
 							unset($_SESSION["login_text"]);
 						}
 						?>
-						<form action="loginprocess.php" method="post">
+						<form action="loginProcess.php" method="post">
 						Enter your account information to login:<br>
 						Name:<br> <input type="text" name="name"><br>
 						Password:<br> <input type="text" name="password"><br>
@@ -26,9 +26,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="footer">
-				footer
-			</div>
+			<?php include '../HTMLelements/footer.php';?>
 	</div>
 </body>
 </html>

@@ -11,12 +11,10 @@
 		<div id="wrapper">
 			<?php include 'HTMLelements/header_meny.php';?>		
 			<div id="main">
-
+				Indexpage
 			</div>
 		</div>
-		<div id="footer">
-			footer
-		</div>
+		<?php include 'HTMLelements/footer.php';?>
 	</div>
 </body>
 </html>

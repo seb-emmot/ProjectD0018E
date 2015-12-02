@@ -6,7 +6,10 @@
 		</div>
 		
 		<div id="searchfield">
-			
+			<form action="/ProjectD0018E/products/products.php" method="get">
+				<input class="searchfieldInput" type ="text" name="search">
+				<input class="searchfieldButton" type="submit">
+			</form>			
 		</div>
 		
 		<div id="identitybox">
@@ -15,7 +18,7 @@
 				echo 'Welcome '.$_SESSION["username"].'! | ';
 				echo '<a class="ib" href="/ProjectD0018E/user/profile.php">Profile</a>
 				|
-				<a class="ib" href="/ProjectD0018E/user/cart.php">Cart</a>
+				<a class="ib" id="cartLink" href="/ProjectD0018E/user/cart.php">Cart('.$_SESSION["itemsInCart"].')</a>
 				|
 				<a class="ib" href="/ProjectD0018E/login/logout.php">Logout</a>';
 			}
@@ -27,6 +30,6 @@
 		?>
 		
 		</div>
-		<div id="notificationPopup">Product Added to Cart!</div>
+		<div id="notificationPopup"></div>
 	</div>
 </div>

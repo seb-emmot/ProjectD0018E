@@ -15,7 +15,7 @@
 							unset($_SESSION["registration_text"]);
 						}
 						?>
-						<form action="reg_process.php" method="post">
+						<form action="registrationProcess.php" method="post">
 						Name:<br> <input type="text" name="name"><br>
 						Password:<br> <input type="text" name="password"><br>
 						<input type="submit">
@@ -23,9 +23,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="footer">
-				footer
-			</div>
+			<?php include '../HTMLelements/footer.php';?>
 	</div>
 </body>
 </html>
