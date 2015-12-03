@@ -177,6 +177,27 @@ background: white;
 	text-decoration: none;
 	color:red;
 }
+.orderView{
+	width: 33.3%;
+	min-height: 25px;
+	float: left;
+	border-bottom:2px solid black;
+}
+/*.orderContainer:hover{
+	transform: color(lightgrey);
+}*/
+.orderItems{
+	width: 90%;
+}
+.orderItems div{	
+}
+
+.pullUpItems{
+	width: 90%;
+	text-align: center;
+}
+
+
 .cartView{
 	width:25%;
 	min-height:25px;
@@ -247,7 +268,23 @@ background: white;
 	overflow: hidden;
 	transform: translate(0, -40px);
 }
+.contactInfo{
+	border-left: 2px solid black;
+	padding-left: 5px;
+}
 
+.changeInfo{
+	min-width: 40px;
+	padding-left:15px;
+	display: inline-block;
+	align: left;
+
+}
+
+.changeInfo a{
+	text-decoration : none;
+	align: right;
+}
 
 
 
