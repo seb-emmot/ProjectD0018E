@@ -1,5 +1,10 @@
 @CHARSET "ISO-8859-1";
 
+.productBoxStyling {
+	background: #F8F8F8;
+	border: 1px solid #E0E0E0;
+}
+
 .productBox {
 	background: #F8F8F8;
 	min-width: 318px;
@@ -7,8 +12,7 @@
 	height: 160px;	
 	float:left;
 	margin: 5px 5px 5px 5px;
-	border-radius: 0px;
-	border: 1px solid #E0E0E0   ;
+	border: 1px solid #E0E0E0;
 	padding: 5px 5px 5px 5px;
 	transition: transform 0.1s ease-in-out;
 }
@@ -20,6 +24,11 @@
 	min-width: 160px;
 	height: 160px;
 	float:left;
+	transition: transform 0.1s ease-in-out;
+}
+
+.productBox img:hover {
+	transform: rotate(45deg);
 }
 
 .productBox h1, h2 {
@@ -50,21 +59,6 @@
 	font-family: 'impact', sans-serif;
 	text-decoration: none;
 	text-align: center;
-}
-
-.productPage {
-	background:gray;
-	width:inherit;
-	height:inherit;
-	float:left;
-}
-
-.productPage img {
-	float:left;
-}
-
-.productDescr {
-	float:left;
 }
 
 .productBoxBuyButton:hover {

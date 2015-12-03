@@ -19,7 +19,7 @@
 						$itemName = $item["name"];						
 						
 						echo '	<div id="product#'.$itemName.'" class="productBox">
-									<a href="item.php?product='.$itemID.'"><img alt="Image" src="'.$item["category"].'/'.$itemName.'/img/default.png">
+									<a href="item.php?productID='.$itemID.'"><img alt="Image" src="'.$item["category"].'/'.$itemName.'/img/default.png">
 									</a>
 									<div id="infoBox">
 										<h1>'.$item["name"].'</h1>
@@ -39,9 +39,11 @@
 					}
 					elseif (isset($_GET["search"])) {
 						$itemSearch = $_GET["search"];
-						if ($itemSearch == "!all") {
+						if ($itemSearch == "/all") {
 							$sql = "SELECT * FROM `products` WHERE 1";
 						}
+						elseif ($itemSearch == "/enable:hacks")
+							header('Location: ../admin/admin.php');
 						else {
 							$sql = "SELECT * FROM `products` WHERE name LIKE '".$itemSearch."%'";
 						}

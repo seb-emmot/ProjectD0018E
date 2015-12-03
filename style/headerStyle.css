@@ -1,0 +1,92 @@
+@CHARSET "ISO-8859-1";
+
+
+#header{
+background: red;
+width: 100%;
+height:120px;
+margin:0 auto;
+border-bottom: 1px solid black;
+}
+
+#header-container {
+	width: 1020px;
+	height:100%;
+	margin: 0 auto;
+}
+
+#logo-container {
+	width: 25%;
+	height: 100%;	
+	float: left;
+}
+
+#searchfieldContainer {
+	width:46%;
+	height:100%;
+	float:left;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+#searchfield {
+	font-family: 'arial', sans-serif;
+	background: white;
+	border: 2px solid gray;
+	border-radius: 5px 10px 5px 10px;
+	margin-top: 60px;
+	height: 30px;
+	width:100%;
+	float: bottom;
+}
+
+.searchfieldInput {
+	background: none;
+	font-size: 18px;
+	padding: 2px 4px 4px 4px;
+	border: none;
+	height:30px;
+	width: 85%;
+	border: none !important;
+}
+
+.searchfieldInput:focus {
+	outline: none;
+}
+
+.searchfieldButton {
+	width: 60px;
+	height:30px;
+	border-radius: 5px 10px 5px 10px;
+	border:none;
+	float:right;
+}
+
+
+#identityContainer {
+	width:25%;
+	height:100%;
+	float: left;
+}
+
+#identitybox {
+	font-family: 'arial', sans-serif;
+	font-size: 12px;
+	background: white;
+	float: right;
+	padding: 4px 8px 4px 8px;
+	border: 1px solid #E0E0E0;
+}
+
+#identitybox a.ib:link {
+	text-decoration: none;
+	color:gray;
+}
+#identitybox a.ib:visited {
+	color:gray;
+}
+#identitybox a.ib:hover {
+	text-decoration: none;
+	color:red;
+	transform: scale(1.05);
+}
