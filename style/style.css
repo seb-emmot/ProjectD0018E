@@ -100,73 +100,6 @@ float:top;
 background: white;
 }
 
-<<<<<<< HEAD
-=======
-#header-container {
-	width: 1020px;
-	margin: 0 auto;
-}
-
-#logo-container {
-	background: red;
-	height: 100%;
-	float: left;
-	width: 300px;
-}
-
-#searchfield {
-	font-family: 'arial', sans-serif;
-	background: white;
-	border: 2px solid gray;
-	border-radius: 5px 10px 5px 10px;
-	margin: 70px 20px 0px 20px;
-	height: 30px;
-	min-width: 400px;
-	float: left;
-}
-
-.searchfieldInput {
-	background: none;
-	font-size: 18px;
-	padding: 2px 4px 4px 4px;
-	border: none;
-	height:30px;
-	width: 340px;
-	border: none !important;
-}
-
-.searchfieldInput:active {
-	border:none;
-}
-
-.searchfieldButton {
-	width: 60px;
-	height:30px;
-	border-radius: 5px 10px 5px 10px;
-	border:none;
-}
-
-#identitybox {
-	font-family: 'arial', sans-serif;
-	font-size: 12px;
-	background: white;
-	border-radius: 0 0 5px 5px;
-	margin-top: 0px;
-	padding: 4px 8px 4px 8px;
-	float: right;
-}
-
-#identitybox a.ib:link {
-	text-decoration: none;
-	color:gray;
-}
-#identitybox a.ib:visited {
-	color:gray;
-}
-#identitybox a.ib:hover {
-	text-decoration: none;
-	color:red;
-}
 .orderView{
 	width: 33.3%;
 	min-height: 25px;
@@ -187,8 +120,6 @@ background: white;
 	text-align: center;
 }
 
-
->>>>>>> origin/master
 .cartView{
 	width:25%;
 	min-height:25px;

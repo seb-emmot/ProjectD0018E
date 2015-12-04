@@ -14,7 +14,7 @@
 		</div>
 		<div id="identityContainer">
 			<div id="identitybox">
-			<?php 		
+			<?php 			
 				if($_SESSION["logged_in"] == true) {
 					echo 'Welcome '.$_SESSION["username"].'! | ';
 					echo '<a class="ib" href="/ProjectD0018E/user/profile.php">Profile</a>
