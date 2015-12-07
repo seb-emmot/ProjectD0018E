@@ -9,6 +9,7 @@
 				<div id="main">
 					<script type="text/javascript" src="../Jscript/changeInfo.js"></script>
 					<script type="text/javascript" src="../Jscript/displayOrder.js"></script>
+					<script type="text/javascript" src="../Jscript/printProducts.js"></script>
 					<b>Contact Information:</b><br><br>
 					<?php 
 						include '../resources/connect.php';
@@ -18,31 +19,33 @@
 						
 						echo '<div id="e_mail" class="contactInfo">';
 						echo 'E-mail: '.$info["e_mail"];
-						echo '<div class="changeInfo"><a id="first" href="#none">change</a></div></div>';
+						echo '</div><div class="changeInfo"><a id="first" href="#none">change</a></div><br>';
 						
 						echo '<div id="fname" class="contactInfo">';
-						if ($info["fname"] != NULL){echo '<br>First name: '.$info["fname"];}
+						if ($info["fname"] != NULL){echo 'First name: '.$info["fname"];}
 						else {echo 'First name: Not set!';}
-						echo '<div class="changeInfo"><a id="second" href="#none">change</a></div></div>';
+						echo '</div><div class="changeInfo"><a id="second" href="#none">change</a></div><br>';
 						
 						echo '<div id="lname" class="contactInfo">';
-						if ($info["lname"] != NULL){echo '<br>Last name: '.$info["lname"];}
+						if ($info["lname"] != NULL){echo 'Last name: '.$info["lname"];}
 						else {echo 'Last name: Not set!';}
-						echo '<div class="changeInfo"><a id="third" href="#none">change</a></div></div>';
+						echo '</div><div class="changeInfo"><a id="third" href="#none">change</a></div><br>';
 						
 						echo '<div id="address" class="contactInfo">';
-						if ($info["address"] != NULL){echo '<br>Address: '.$info["address"];}
+						if ($info["address"] != NULL){echo 'Address: '.$info["address"];}
 						else {echo 'Address: Not set!';}
-						echo '<div class="changeInfo"><a id="fourth" href="#none">change</a></div></div>';
-						
-						echo '<div id="reg_date" class="contactInfo">';
-						if ($info["reg_date"] != NULL){echo '<br>Registration date: '.$info["reg_date"];}
-						else {echo 'Registration date: Not set!';}
-						echo '<div class="changeInfo"><a id="fifth" href="#none">change</a></div></div>';
+						echo '</div><div class="changeInfo"><a id="fourth" href="#none">change</a></div><br>';
 						
 						echo '<div id="password" class="contactInfo">';
-						echo '<br>Password: '.$info["password"];
-						echo '<div class="changeInfo"><a id="sixth" href="#none">change</a></div></div>';
+						echo 'Password: '.$info["password"];
+						echo '</div><div class="changeInfo"><a id="sixth" href="#none">change</a></div><br>';
+						
+						echo '<div id="reg_date" class="contactInfo">';
+						if ($info["reg_date"] != NULL){echo 'Registration date: '.$info["reg_date"];}
+						else {echo 'Registration date: Not set!';}
+						echo '</div><br>';
+						
+						
 					?>
 					<br>
 					<script>document.getElementById("first").addEventListener("click", function() {
@@ -57,32 +60,57 @@
 					<script>document.getElementById("fourth").addEventListener("click", function() {
 											changeInfo("address");
 										}, false);</script>
-					<script>document.getElementById("fifth").addEventListener("click", function() {
-											changeInfo("reg_date");
-										}, false);</script>
 					<script>document.getElementById("sixth").addEventListener("click", function() {
 											changeInfo("password");
 										}, false);</script>
-					
+					<b>Order History:</b>
 					<div id=orderHistory>
 						<?php 
 						$sql = "SELECT * FROM orders WHERE user_id = " . $_SESSION["id"];
-						$orders = $conn->query($sql);//get cart associated to user
+						$orders = $conn->query($sql);//get orders associated to user
 						if ($orders->num_rows > 0){
 							echo '<div class="orderView">Order-id:</div>';
 							echo '<div class="orderView">Order date:</div>';
-							echo '<div class="orderView">Price:</div>';
+							echo '<div class="orderView">Price($):</div>';
 							while ($row = $orders->fetch_assoc()){
 								echo '<div id="'.$row["order_id"].'" class="orderContainer"><div class="orderView">'.$row["order_id"].'</div>';
 								echo '<div class="orderView">'.$row["date"].'</div>';
-								echo '<div class="orderView">'.$row["price"].'<a id="'.$row["order_id"].'items">+</a></div></div>';
-								echo '<script>document.getElementById("'.$row["order_id"].'items").addEventListener("click", function() {
+								echo '<div class="orderView">'.$row["price"].'<div><a id="'.$row["order_id"].'items">+</a></div></div></div>';
+								echo '<script>$("#'.$row["order_id"].'items").css("cursor", "pointer");
+								document.getElementById("'.$row["order_id"].'items").addEventListener("click", function() {
 											displayOrder("'.$row["order_id"].'");
 										}, false);</script>';
 							}
 						}
 						?>
+						</div><br>
 						
+						<div id="rankedProducts">
+						<b>Products you have ranked:</b>
+							<?php 
+								$sql = "SELECT item_id, rating FROM reviews WHERE user_id = " . $_SESSION["id"];
+								$reviews = $conn->query($sql);//get reviews associated to user
+								if ($reviews->num_rows > 0){
+									echo '<div class="ratedProduct"><div class="productNameProfile">Name:</div><div class="productRatingProfile">Rating:</div><br>';
+									while ($row = $reviews->fetch_assoc()){
+										$sql = "SELECT name FROM products WHERE item_id = " . $row["item_id"];
+										$name = $conn->query($sql);
+										$name = $name->fetch_assoc();
+										$name = $name["name"];
+										$rating = $row["rating"];
+										$item_id = $row["item_id"];
+										echo '<script>
+												printProducts("'.$name.'",'.$rating.','.$item_id.');
+											</script>';
+										
+									}
+									echo '</div>';
+								}
+								else {
+									echo 'None.';
+								}
+							?>
+						</div>
 					</div>
 				</div>
 				
