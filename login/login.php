@@ -1,18 +1,21 @@
-<?php 
-session_start();
-?>
+<?php session_start(); ?>
 <html>
-<?php include 'HTMLelements/header.php';?>
+<?php include '../HTMLelements/head.php';?>
 <body>
 
 	<div id="pagewrapper">
-			<div id="header">
-			</div>
+			<?php include '../HTMLelements/header.php'?>
 			<div id="wrapper">
-				<?php include 'HTMLelements/header_meny.php';?>		
+				<?php include '../HTMLelements/header_meny.php';?>		
 				<div id="main">
 					<div id="loginbox">
-						<form action="loginprocess.php" method="post">
+						<?php 
+						if((isset($_SESSION["login_text"]))) {
+							echo $_SESSION["login_text"];
+							unset($_SESSION["login_text"]);
+						}
+						?>
+						<form action="loginProcess.php" method="post">
 						Enter your account information to login:<br>
 						Name:<br> <input type="text" name="name"><br>
 						Password:<br> <input type="text" name="password"><br>
@@ -23,9 +26,7 @@ session_start();
 					</div>
 				</div>
 			</div>
-			<div id="footer">
-				footer
-			</div>
+			<?php include '../HTMLelements/footer.php';?>
 	</div>
 </body>
 </html>

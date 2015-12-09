@@ -1,0 +1,152 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema e-commerce
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema e-commerce
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `e-commerce` DEFAULT CHARACTER SET utf8 ;
+USE `e-commerce` ;
+
+-- -----------------------------------------------------
+-- Table `e-commerce`.`ACCOUNTS`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `e-commerce`.`ACCOUNTS` (
+  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `e_mail` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `reg_date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `fname` VARCHAR(45) NULL DEFAULT NULL,
+  `lname` VARCHAR(45) NULL DEFAULT NULL,
+  `address` VARCHAR(45) NULL DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE INDEX `e-mail_UNIQUE` (`e_mail` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `e-commerce`.`PRODUCTS`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `e-commerce`.`PRODUCTS` (
+  `item_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `price` INT NOT NULL,
+  `category` VARCHAR(45) NOT NULL,
+  `stock` INT NOT NULL,
+  `rating` INT NULL DEFAULT 0,
+  PRIMARY KEY (`item_id`),
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `e-commerce`.`CART_ITEMS`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `e-commerce`.`CART_ITEMS` (
+  `user_id` INT NOT NULL,
+  `item_id` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `item_id`),
+  INDEX `item-item_idx` (`item_id` ASC),
+  CONSTRAINT `item-item`
+    FOREIGN KEY (`item_id`)
+    REFERENCES `e-commerce`.`PRODUCTS` (`item_id`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION,
+  CONSTRAINT `cart-user`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `e-commerce`.`ACCOUNTS` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `e-commerce`.`ORDERS`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `e-commerce`.`ORDERS` (
+  `order_id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `price` INT UNSIGNED NOT NULL,
+  `date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`order_id`),
+  INDEX `order-user_idx` (`user_id` ASC),
+  CONSTRAINT `order-user`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `e-commerce`.`ACCOUNTS` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `e-commerce`.`ORDER_ITEMS`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `e-commerce`.`ORDER_ITEMS` (
+  `order_id` INT NOT NULL,
+  `item_id` INT NOT NULL,
+  `quantity` INT NOT NULL,
+  INDEX `order-order_idx` (`order_id` ASC),
+  INDEX `item-product_idx` (`item_id` ASC),
+  PRIMARY KEY (`order_id`, `item_id`),
+  CONSTRAINT `order-order`
+    FOREIGN KEY (`order_id`)
+    REFERENCES `e-commerce`.`ORDERS` (`order_id`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION,
+  CONSTRAINT `item-product`
+    FOREIGN KEY (`item_id`)
+    REFERENCES `e-commerce`.`PRODUCTS` (`item_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `e-commerce`.`REVIEWS`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `e-commerce`.`REVIEWS` (
+  `user_id` INT NOT NULL,
+  `item_id` INT NOT NULL,
+  `comment` VARCHAR(255) NULL,
+  `date` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `rating` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `item_id`),
+  INDEX `review-item_id_idx` (`item_id` ASC),
+  CONSTRAINT `review-user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `e-commerce`.`ACCOUNTS` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `review-item_id`
+    FOREIGN KEY (`item_id`)
+    REFERENCES `e-commerce`.`PRODUCTS` (`item_id`)
+    ON DELETE CASCADE
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+-- Adding products to Database
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "onion", "10", "5");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "garlic", "20", "4");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "mustard", "54", "7");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "tomato", "33", "2");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "cheese", "26", "9");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "cucumber", "12", "22");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "squash", "33", "2");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "pizza", "26", "9");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "mozzarella", "12", "22");
+
+
