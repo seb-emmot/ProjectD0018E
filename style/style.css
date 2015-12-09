@@ -81,7 +81,11 @@ background: white;
 #orderHistory{
 	align: left;
 	width: 100%;
+<<<<<<< HEAD
 	overflow:auto;
+=======
+ 	overflow:auto;
+>>>>>>> origin/master
 }
 
 .orderView{
@@ -89,6 +93,7 @@ background: white;
 	min-height: 25px;
 	float: left;
 	border-bottom:2px solid black;
+	overflow: auto;
 }
 .orderView div{
 float: right;
@@ -99,13 +104,14 @@ display: inline-block;
 
 .orderItems{
 	width: 90%;
-}
-.orderItems div{	
+	overflow: auto;
 }
 
+
 .pullUpItems{
-	width: 90%;
 	text-align: center;
+	background: lightgrey;
+	border-bottom:2px solid black;
 }
 
 .cartView{
@@ -186,10 +192,11 @@ display: inline-block;
 }
 
 .changeInfo{
-	min-width: 40px;
-	padding-left:15px;
+	min-width: 15px;
+	margin-left:15px;
 	display: inline-block;
 	align: left;
+	cursor: pointer;
 
 }
 
@@ -212,7 +219,6 @@ display: inline-block;
 
 #rankedProducts{
 	align: left;
-	margin-top: 15px;
 }
 
 
