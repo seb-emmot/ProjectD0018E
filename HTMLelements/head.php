@@ -1,4 +1,5 @@
 <head>
+	<LINK href="/ProjectD0018E/style/styleReset.css" rel="stylesheet" type="text/css">
 	<LINK href="/ProjectD0018E/style/style.css" rel="stylesheet" type="text/css">
 	<LINK href="/ProjectD0018E/style/productSystem.css" rel="stylesheet" type="text/css">
 	<LINK href="/ProjectD0018E/style/loginSystem.css" rel="stylesheet" type="text/css">

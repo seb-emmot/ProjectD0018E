@@ -38,7 +38,7 @@
 									<div id="itemReviewPageReviews">
 									</div>
 									<br>
-									<form id="itemReviewForm" action="submitReview.php" method="post">
+									<form id="itemReviewForm" action="submitReview.php?productID=<?php echo $_GET["productID"];?>" method="post">
 										<input type="radio" name="rating" value="1">
 										<input type="radio" name="rating" value="2">
 										<input type="radio" name="rating" value="3">
@@ -64,9 +64,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="footer">
-			footer
-		</div>
+		<?php include '../HTMLelements/footer.php';?>
 	</div>
 </body>
 </html>

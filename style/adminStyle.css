@@ -1,0 +1,37 @@
+@CHARSET "ISO-8859-1";
+
+#wrapper {
+	background:gray;
+	min-width:600px;
+}
+
+#top {
+	background:red;
+	width:100%;
+	float: top;
+}
+
+#main {
+	background: yellow;
+	width:100%;
+	float: top;
+	overflow:auto;
+}
+
+#mainSidebar {
+	float: left;
+	width:50%;
+	height:100%;
+}
+
+#mainContent {
+	float: left;
+	width:50%;
+	height:100%;
+}
+
+#foot {
+	width:100%;
+	background: blue;
+	float: top;
+}

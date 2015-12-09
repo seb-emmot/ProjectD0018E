@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `e-commerce`.`PRODUCTS` (
   `price` INT NOT NULL,
   `category` VARCHAR(45) NOT NULL,
   `stock` INT NOT NULL,
-  `rating` INT NULL DEFAULT 0,
+  `rating` FLOAT NULL DEFAULT 0,
   PRIMARY KEY (`item_id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC))
 ENGINE = InnoDB;

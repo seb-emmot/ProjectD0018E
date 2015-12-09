@@ -22,7 +22,7 @@ $itemRatingSum = $itemRatingSum/$numberOfRatings;
 $sql = "UPDATE `products` SET `rating`='$itemRatingSum' WHERE `item_id`='$i_id'";
 $conn->query($sql);
 
-header("Location: products.php");
+header("Location: item.php?productID=".$_GET["productID"]);
 
 ?>
 
