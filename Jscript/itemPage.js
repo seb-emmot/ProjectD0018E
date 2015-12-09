@@ -28,14 +28,14 @@ function Setup(item) {	// Gets info from the server regarding product name, pric
 	var itemRatingBox = document.getElementById("itemAvgRating");
 	var itemStockBox = document.getElementById("itemBuyBoxStock");
 	
-	var itemReviews = document.getElementById("itemReviews");
-	DisplayReviews(itemID, itemReviews);
+	var itemReviewsBox = document.getElementById("itemReviews");
+	DisplayReviews(itemID);
 	
 	var imgID = "item:"+itemName
 	itemImgBox.innerHTML = '<img id="'+imgID+'" src="'+category+'/'+itemName+'/img/default.png">';
 	title.innerHTML = itemName;
 	priceBox.innerHTML = currency+itemPrice;
-	itemRatingBox.innerHTML = "average rating: "+itemRating+"/10";
+	itemRatingBox.innerHTML = "average rating: "+itemRating+"/5";
 	
 	if(itemStock > 0) {
 		itemStockBox.innerHTML = itemStock+" avaliable";
@@ -49,14 +49,14 @@ function Setup(item) {	// Gets info from the server regarding product name, pric
 	
 	document.getElementById("itemBuyBoxButton").addEventListener("click", function() {addToCart(itemID, itemName)});
 	var descrButton = document.getElementById("itemDescriptionButton");
-	var ratingButton = document.getElementById("itemRatingButton");	
+	var ratingButton = document.getElementById("itemRatingButton");
 	
-	var submitReviewButton = document.getElementById("itemSubmitReviewButton");
+	OpenDescription(descrButton, ratingButton);
+	FillDescription(category, itemName);
 	
 	descrButton.addEventListener("click", function() {OpenDescription(descrButton, ratingButton)});
 	ratingButton.addEventListener("click", function() {OpenRatings(descrButton, ratingButton)});
 	itemImgBox.addEventListener("click", function() {CycleImg(imgID)});
-	submitReviewButton.addEventListener("click", function() {SubmitReview()});
 	
 }
 
@@ -74,6 +74,21 @@ function OpenDescription(descrButton, ratingButton) {
 	document.getElementById("itemDescriptionPage").style.display = "block";
 }
 
+function FillDescription(category, itemName) {
+	var xhr;
+	if (window.XMLHttpRequest) xhr = new XMLHttpRequest(); 		// all browsers except IE
+	else xhr = new ActiveXObject("Microsoft.XMLHTTP"); 		// for IE
+	 
+	xhr.open('GET', category+"/"+itemName+"/"+"descr"+'.html', false);
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState===4 && xhr.status===200) {
+			var div = document.getElementById('itemDescriptionPage');
+			div.innerHTML = xhr.responseText;
+		}
+	}
+	xhr.send();
+}
+
 function OpenRatings(descrButton, ratingButton) {
 	descrButton.className = "itemDeactive";
 	ratingButton.className = "itemActive";
@@ -87,14 +102,21 @@ function SubmitReview() {
 	
 }
 
-function DisplayReviews(itemID, displayElement) {
+function DisplayReviews(itemID) {
 	$.ajax({
 		   url: "../SQLcalls/getProductReviews.php",
 		   type: "GET",
 		   data: {itemid: itemID},
 		   dataType: "json",
-		   success: function(review){
-			   displayElement.innerHTML = review.comment;
+		   success: function(AllReviews){
+			   var reviewPage = document.getElementById("itemReviewPageReviews");
+			   var outputString = "";
+			   var counter = 0;
+			   while(counter<AllReviews.length/3) {
+				   outputString = outputString+"<h2>"+AllReviews[0+(3*counter)]+" : "+AllReviews[2+(3*counter)]+" / 5</h2><p>\""+AllReviews[1+(3*counter)]+"\"</p><hr>";
+				   counter++;
+			   }
+			   reviewPage.innerHTML = outputString;	   
 		   }
 		 });
 }

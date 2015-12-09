@@ -100,15 +100,23 @@ float:top;
 background: white;
 }
 
+#orderHistory{
+	align: left;
+}
+
 .orderView{
 	width: 33.3%;
 	min-height: 25px;
 	float: left;
 	border-bottom:2px solid black;
 }
-/*.orderContainer:hover{
-	transform: color(lightgrey);
-}*/
+.orderView div{
+float: right;
+padding-right: 15px;
+font-weight: bold;
+display: inline-block;	
+}
+
 .orderItems{
 	width: 90%;
 }
@@ -193,6 +201,8 @@ background: white;
 .contactInfo{
 	border-left: 2px solid black;
 	padding-left: 5px;
+	display:inline-block;
+	width: 350px;
 }
 
 .changeInfo{
@@ -208,6 +218,21 @@ background: white;
 	align: right;
 }
 
+.productNameProfile{
+	display: inline-block;
+	width: 150px;
+	border-bottom: 1px solid black;
+}
 
+.productRatingProfile{
+	display: inline-block;
+	width: 150px;
+	border-bottom: 1px solid black;
+}
+
+#rankedProducts{
+	align: left;
+	margin-top: 15px;
+}
 
 

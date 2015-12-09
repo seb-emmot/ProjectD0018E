@@ -35,17 +35,19 @@
 								<div id="itemDescriptionPage">
 								</div>
 								<div id="itemReviewPage">
+									<div id="itemReviewPageReviews">
+									</div>
+									<br>
 									<form id="itemReviewForm" action="submitReview.php" method="post">
-									<input type="radio" name="rating" value="1">
-									<input type="radio" name="rating" value="2">
-									<input type="radio" name="rating" value="3">
-									<input type="radio" name="rating" value="4">
-									<input type="radio" name="rating" value="5"> <br>
-									<textarea name="comment" rows="5" cols="30"></textarea>
-									<input type="hidden" name="product" value="<?php echo $_GET["productID"];?>">
-									<input type="submit" value="Submit">
+										<input type="radio" name="rating" value="1">
+										<input type="radio" name="rating" value="2">
+										<input type="radio" name="rating" value="3">
+										<input type="radio" name="rating" value="4">
+										<input type="radio" name="rating" value="5"> <br>
+										<textarea name="comment" rows="5" cols="30"></textarea>
+										<input type="hidden" name="product" value="<?php echo $_GET["productID"];?>">
+										<input id="submit" type="submit" value="Submit">
 									</form>
-									<div id="itemSubmitReviewButton"></div>
 								</div>
 							</div>
 						</div>
