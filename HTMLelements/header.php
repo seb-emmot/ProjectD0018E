@@ -14,7 +14,13 @@
 		</div>
 		<div id="identityContainer">
 			<div id="identitybox">
-			<?php 			
+			<?php
+				if(!isset($_SESSION["shopping_cart"])){
+					$_SESSION["shopping_cart"] = array();
+				}
+				if(!isset($_SESSION["itemsInCart"])){
+					$_SESSION["itemsInCart"] = 0;
+				}
 				if($_SESSION["logged_in"] == true) {
 					echo 'Welcome '.$_SESSION["username"].'! | ';
 					echo '<a class="ib" href="/ProjectD0018E/user/profile.php">Profile</a>
@@ -26,7 +32,9 @@
 				else {
 					echo '<a class="ib" href="/ProjectD0018E/login/login.php">Login</a>
 					|
-					<a class="ib" href="/ProjectD0018E/login/registration.php">Register</a>';
+					<a class="ib" href="/ProjectD0018E/login/registration.php">Register</a>
+					|
+					<a class="ib" id="cartLink" href="/ProjectD0018E/user/cart.php">Cart('.$_SESSION["itemsInCart"].')</a>';
 				}			
 			?>
 			</div>

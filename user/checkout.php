@@ -1,4 +1,13 @@
-<?php session_start(); ?>
+<?php session_start();
+if (!$_SESSION["logged_in"]){
+	$_SESSION["login_text"] = "<p>You need to be logged in to make
+		a purchase. Don't worry, your cart will be saved!<br>
+			(If you had an old cart attached to your account
+			it will be deleted)</p><br>";
+	header("Location: ../login/login.php");
+	die();
+}
+?>
 <html>
 <?php include '../HTMLelements/head.php';?>
 <body>

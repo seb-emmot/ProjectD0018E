@@ -1,5 +1,5 @@
 <?php session_start(); 
-
+$productID = $_GET["productID"];
 ?>
 <html>
 <?php include '../HTMLelements/head.php';?>
@@ -38,15 +38,15 @@
 									<div id="itemReviewPageReviews">
 									</div>
 									<br>
-									<form id="itemReviewForm" action="submitReview.php?productID=<?php echo $_GET["productID"];?>" method="post">
+									<form id="itemReviewForm" method="GET">
 										<input type="radio" name="rating" value="1">
 										<input type="radio" name="rating" value="2">
 										<input type="radio" name="rating" value="3">
 										<input type="radio" name="rating" value="4">
 										<input type="radio" name="rating" value="5"> <br>
-										<textarea name="comment" rows="5" cols="30"></textarea>
-										<input type="hidden" name="product" value="<?php echo $_GET["productID"];?>">
-										<input id="submit" type="submit" value="Submit">
+										<textarea id="comment" name="comment" rows="5" cols="30"></textarea>
+										<input type="hidden" name="productId" value="<?php echo $productID;?>">
+										<input id="submit" type="button" value="Submit" onclick="submitReview(<?php echo $productID;?>)">
 									</form>
 								</div>
 							</div>
@@ -59,7 +59,7 @@
 					</div>
 					
 					<script type="text/javascript">
-					InitialSetup(<?php echo $_GET["productID"];?>);
+					InitialSetup(<?php echo $productID;?>);
 					</script>					
 				</div>
 			</div>

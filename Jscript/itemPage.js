@@ -11,7 +11,7 @@ function InitialSetup(itemID) {
 }
 
 function Setup(item) {	// Gets info from the server regarding product name, price, category etc. and displays on the itempage.
-	var currency = "$"
+	var currency = "$";
 	var viewingDescription = true;
 	
 	var itemID = item.itemID;
@@ -121,6 +121,38 @@ function DisplayReviews(itemID) {
 		 });
 }
 
+function submitReview(productId){
+	var rating = $('input[name=rating]:checked').val();
+	var comment = $("#comment").val();
+	if(rating != null){
+		$.ajax({
+			   url: "submitReview.php",
+			   type: "POST",
+			   data: {productID: productId,
+				   	  Rating: rating,
+				   	  Comment: comment},
+			   dataType: "json",
+			   success: function(data){
+				   console.log("success\n");
+				   if(data.loggedIn){
+					   if(data.notCommented){
+						   DisplayReviews(productId);
+					   }
+					   else {
+						   alert("You have already commented this product!");
+					   }
+				   }
+				   else{
+					   alert("You need to be logged in to leave reviews!");
+				   }
+				   
+			   }
+		});
+	}
+	else{
+		alert("You need to rate the product before submitting.");
+	}
+}
 
 
 

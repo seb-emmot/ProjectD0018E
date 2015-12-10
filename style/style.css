@@ -81,11 +81,7 @@ background: white;
 #orderHistory{
 	align: left;
 	width: 100%;
-<<<<<<< HEAD
 	overflow:auto;
-=======
- 	overflow:auto;
->>>>>>> origin/master
 }
 
 .orderView{
