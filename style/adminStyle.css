@@ -1,37 +1,94 @@
 @CHARSET "ISO-8859-1";
 
+body {
+}
+
 #wrapper {
-	background:gray;
+	height:auto;
+	background:white;
 	min-width:600px;
 }
 
 #top {
 	background:red;
 	width:100%;
+	height:20px;
 	float: top;
+	position: fixed;
+	top: 0;
 }
 
 #main {
-	background: yellow;
 	width:100%;
+	margin-top:20px;
+	height:auto;
 	float: top;
 	overflow:auto;
 }
 
 #mainSidebar {
+	background: yellow;
 	float: left;
-	width:50%;
-	height:100%;
+	width:200px;
+	padding: 5px;
+}
+
+#mainSidebar li {
+	margin-top:5px;
+}
+#mainSideBar li:hover {
+	cursor:hand;
+	background:green;
 }
 
 #mainContent {
-	float: left;
-	width:50%;
-	height:100%;
+	width:auto;
+	overflow:hidden;
+	padding: 5px;
+}
+
+.active {
+	display:block;
+}
+
+.inActive {
+	display:none;
+}
+
+#adminViewProductsPageTopBar {
+	border-bottom: 1px solid black;
+	float:top;
+	width: 100%;
+	overflow:auto;
+}
+#adminViewProductsPageTopBar:hover {
+	background:inherit;
+}
+
+.product {
+	float:top;
+	width: 100%;
+	overflow:auto;
+}
+
+.product ul {
+	width:100%;
+}
+
+.product li {
+	width: 15%; 
+	display:inline;
+	float:left;
+}
+
+.product:hover {
+	background:yellow;
+	cursor: hand;
 }
 
 #foot {
 	width:100%;
 	background: blue;
 	float: top;
+	clear:both;
 }
