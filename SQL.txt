@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `e-commerce`.`PRODUCTS` (
   `category` VARCHAR(45) NOT NULL,
   `stock` INT NOT NULL,
   `rating` FLOAT NULL DEFAULT 0,
+  `active` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`item_id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC))
 ENGINE = InnoDB;
@@ -132,21 +133,35 @@ CREATE TABLE IF NOT EXISTS `e-commerce`.`REVIEWS` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `e-commerce`.`ADMIN_ACCOUNTS`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `e-commerce`.`ADMIN_ACCOUNTS` (
+  `admin_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC),
+  PRIMARY KEY (`admin_id`),
+  UNIQUE INDEX `admin_id_UNIQUE` (`admin_id` ASC))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
+
 -- Adding products to Database
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "onion", "10", "5");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "garlic", "20", "4");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "mustard", "54", "7");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "tomato", "33", "2");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "cheese", "26", "9");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "cucumber", "12", "22");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "squash", "33", "2");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat2", "pizza", "26", "9");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`) VALUES ("testcat1", "mozzarella", "12", "22");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat1", "onion", "10", "5", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat1", "garlic", "20", "4", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat1", "mustard", "54", "7", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat1", "tomato", "33", "2", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat2", "cheese", "26", "9", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat2", "cucumber", "12", "22", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat2", "squash", "33", "2", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat2", "pizza", "26", "9", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat1", "mozzarella", "12", "22", "1");
 
 
