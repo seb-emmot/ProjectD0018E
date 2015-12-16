@@ -21,6 +21,10 @@ border-bottom: 1px solid black;
 	float: left;
 }
 
+#logo-container:hover {
+	cursor: hand;
+}
+
 #searchfieldContainer {
 	width:46%;
 	height:100%;

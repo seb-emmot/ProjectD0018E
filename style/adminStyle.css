@@ -73,12 +73,25 @@ body {
 
 .product ul {
 	width:100%;
+	overflow: auto;
 }
 
 .product li {
-	width: 15%; 
+	width: 8%; 
 	display:inline;
 	float:left;
+	word-wrap:break-word;
+	padding-right:0.5%;
+	padding-left:0.5%;
+	border-right: 1px solid gray;
+}
+
+.productExtra{
+	width:20% !important;
+}
+
+.numberExtra{
+	text-align: right;
 }
 
 .product:hover {

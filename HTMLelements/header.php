@@ -42,3 +42,4 @@
 		<div id="notificationPopup"></div>
 	</div>
 </div>
+<script type="text/javascript" src="../Jscript/headerSetup.js"></script>

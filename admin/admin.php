@@ -48,11 +48,12 @@ else {
 					<div id="adminViewProductsPageTopBar" class="product">
 						<ul>
 							<li>ID</li>
-							<li>Product Name</li>
-							<li>Price</li>
+							<li class="productExtra">Product Name</li>
 							<li>Category</li>
+							<li>Price</li>
 							<li>Current Stock</li>
 							<li>Average Rating</li>
+							<li>Status</li>
 						</ul>
 						
 					</div>
