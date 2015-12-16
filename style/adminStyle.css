@@ -92,3 +92,15 @@ body {
 	float: top;
 	clear:both;
 }
+
+#loginbox {
+	background: #F8F8F8;
+	width: 400px;
+	position: absolute;
+	left: 50%;
+	margin-right: -50%;
+	margin-top:20px;
+	transform: translate(-50%);
+	padding: 10px;
+	border: 1px solid #E0E0E0;
+}
