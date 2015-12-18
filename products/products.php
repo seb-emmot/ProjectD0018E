@@ -11,6 +11,8 @@
 			<div id="main">
 				<script src="../Jscript/addToCart.js"></script>
 				<script src="../Jscript/updateCartCounter.js"></script>
+				<script src="../Jscript/printProductPage.js"></script>
+				<div id="productToolBar"></div>
 				<?php 					
 					function printProduct($itemID, $conn) {						
 						$sql = "SELECT * FROM `products` WHERE item_id = ".$itemID;
@@ -35,7 +37,7 @@
 					$sql = "";					
 					if(isset($_GET["category"])) {
 						$itemCategory = $_GET["category"];
-						$sql = "SELECT `item_id` FROM `PRODUCTS` WHERE category = '".$itemCategory."'";
+						$sql = "SELECT * FROM `PRODUCTS` WHERE category = '".$itemCategory."'";
 					}
 					elseif (isset($_GET["search"])) {
 						$itemSearch = $_GET["search"];
@@ -50,7 +52,7 @@
 						
 					}
 					else {
-						$sql = "SELECT `item_id` FROM `PRODUCTS` WHERE 1";
+						$sql = "SELECT * FROM `PRODUCTS` WHERE 1";
 					}
 					
 					include '../resources/connect.php';
@@ -59,10 +61,18 @@
 					if (($itemList->num_rows) < 1) {
 						echo "It seems like we do not have any products matching your criteria.";
 					}
-					while($itemListRow = $itemList->fetch_assoc()) { //Loops through all entries selected by SELECT and prints them
-							printProduct($itemListRow["item_id"], $conn);
+					//while($itemListRow = $itemList->fetch_assoc()) { //Loops through all entries selected by SELECT and prints them
+						//	printProduct($itemListRow["item_id"], $conn);
+					//}
+					$itemArray = [];
+					while($itemListRow = $itemList->fetch_assoc()) { //Loops through all entries selected by SELECT and makes an array of them
+						$oneItem = array($itemListRow["item_id"], $itemListRow["name"], $itemListRow["price"], $itemListRow["rating"], $itemListRow["stock"], $itemListRow["category"]);
+						array_push($itemArray, $oneItem);
 					}
 				?>
+				<script type="text/javascript">
+					printProductPage(<?php echo json_encode($itemArray)?>, "name");
+				</script>
 			</div>
 		</div>
 		<?php include '../HTMLelements/footer.php';?>

@@ -62,3 +62,17 @@
 .productBoxBuyButton:hover {
 	background: blue;
 }
+.sortBtn{
+	cursor: pointer;
+	align: left;
+	display: inline-block;
+	padding-left: 20px;
+	
+}
+
+#toolbar{
+	width: 100%;
+	background: lightgrey;
+	padding-left: 15px;
+}
+
