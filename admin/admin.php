@@ -1,13 +1,10 @@
-<?php 
+<?php session_start();
 if(isset($_SESSION["admin"])){
-	
 }
 else {
-	//header("Location: unAuthorized.php");
+	header("Location: adminLogin.php");
 } ?>
 <script src="../Jscript/admin/adminPage.js"></script>
-
-</script>	
 <html>
 <head>
 	<script type="text/javascript" src="../jquery-1.11.3.min.js"></script>
@@ -17,7 +14,7 @@ else {
 <body>
 	<div id="wrapper">
 		<div id="top">
-			This is adminpage
+			This is adminpage, you are logged in as Admin: <?php echo $_SESSION["username"]?>
 		</div>
 		<div id="main">
 			<div id="mainSidebar">

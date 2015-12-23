@@ -97,11 +97,6 @@ function OpenRatings(descrButton, ratingButton) {
 	document.getElementById("itemReviewPage").style.display = "block";
 }
 
-function SubmitReview() {
-	var x = document.getElementById("itemReviewForm").submit();
-	
-}
-
 function DisplayReviews(itemID) {
 	$.ajax({
 		   url: "../SQLcalls/getProductReviews.php",

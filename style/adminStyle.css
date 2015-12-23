@@ -99,6 +99,10 @@ body {
 	cursor: hand;
 }
 
+.product input {
+	width:100%;
+}
+
 #foot {
 	width:100%;
 	background: blue;
