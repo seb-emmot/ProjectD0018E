@@ -63,11 +63,15 @@
 	background: blue;
 }
 .sortBtn{
+	width: 50px;
 	cursor: pointer;
 	align: left;
 	display: inline-block;
 	padding-left: 20px;
-	
+}
+
+#toolbar div:hover{
+	font-weight: bold;
 }
 
 #toolbar{

@@ -16,7 +16,7 @@ function printProductPage(itemArray, sorting){
 		var colIndex = 3;
 	}
 	else {
-	 console.log("hej");
+		var colIndex = 1;
 	}
 	
 	var sortedItemArray = sortByColumn(itemArray, colIndex);
@@ -26,7 +26,7 @@ function printProductPage(itemArray, sorting){
 	
 	var toolbar = document.createElement("div");
 	toolbar.setAttribute('id', "toolbar");
-	toolbar.innerHTML = "Sort by: "
+	toolbar.innerHTML = "<b>Sort by: </b>"
 	var sortBtn = document.createElement("div");
 	sortBtn.setAttribute('class', "sortBtn");
 	sortBtn.innerHTML = " Name ";
