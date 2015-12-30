@@ -93,6 +93,7 @@ CREATE TABLE IF NOT EXISTS `e-commerce`.`ORDER_ITEMS` (
   `order_id` INT NOT NULL,
   `item_id` INT NOT NULL,
   `quantity` INT NOT NULL,
+  `price` INT NOT NULL,
   INDEX `order-order_idx` (`order_id` ASC),
   INDEX `item-product_idx` (`item_id` ASC),
   PRIMARY KEY (`order_id`, `item_id`),
@@ -149,6 +150,7 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 
 

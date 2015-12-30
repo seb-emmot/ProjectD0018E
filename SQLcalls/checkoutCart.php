@@ -13,8 +13,13 @@ $sql_get_items = "SELECT * FROM cart_items WHERE user_id = " . $uID;
 $cart = $conn->query($sql_get_items);//get cart associated to checkout
 
 while ($row = $cart->fetch_assoc()){
-	$sql_lay_order = "INSERT INTO order_items (`order_id`, `item_id`, `quantity`) 
-			VALUES ($orderID, ".$row["item_id"].", ".$row["quantity"].")";
+	$sql_get_price = "SELECT price FROM products WHERE item_id = " .$row["item_id"];
+	$itemPrice = $conn->query($sql_get_price);
+	$itemPrice = $itemPrice->fetch_assoc();
+	$itemPrice = $itemPrice["price"];
+	
+	$sql_lay_order = "INSERT INTO order_items (`order_id`, `item_id`, `quantity`, `price`) 
+			VALUES ($orderID, ".$row["item_id"].", ".$row["quantity"].", ".$itemPrice.")";
 	$conn->query($sql_lay_order);
 	
 	$sql_change_stock = "UPDATE PRODUCTS
