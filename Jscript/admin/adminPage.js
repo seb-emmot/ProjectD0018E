@@ -7,6 +7,9 @@ function setupAdmin() {
 	
 	var adminViewProductsButton = document.getElementById("adminViewProducts");	
 	adminViewProductsButton.addEventListener("click", function() {setActive(document.getElementById("adminViewProductsPage"))});
+	
+	var adminViewUsersButton = document.getElementById("adminViewUsers");	
+	adminViewUsersButton.addEventListener("click", function() {setActive(document.getElementById("adminViewUsersPage"))});
 
 	getProducts();
 	
@@ -66,22 +69,25 @@ function displayProducts(allProducts) {
 }
 
 function editItem(itemElement) {	//triggered when clicking on an item in the "view products" page
-	itemElement.style.backgroundColor = "lightgray";
 	if(isEditing) {
 		var editor = document.getElementById("editor");
-		var parent = editor.parentNode.parentNode;
+		var parent = editor.parentNode;
 		
-		if(parent == itemElement) { //did you click the same item again?
-			//isEditing=false;
+		if(parent == itemElement) { //did you click the same item again? **Broken atm.
+			isEditing=false;
+			editor.parentNode.parentNode.style.backgroundColor = "#F8F8F8";
+			parent.removeChild(editor);
 			console.log("same clicked");
 		}
 		else {
+			editor.parentNode.parentNode.style.backgroundColor = "#F8F8F8";
 			parent.removeChild(editor);
-			parent.style.backgroundColor = "white";
 			createEditor(itemElement);
+			itemElement.style.backgroundColor = "lightgray";
 		}
 	}	
 	else {
+		itemElement.style.backgroundColor = "lightgray";
 		createEditor(itemElement);
 	}
 }

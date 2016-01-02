@@ -10,7 +10,7 @@ body {
 }
 
 #top {
-	background:red;
+	background: #dfdfdf;
 	width:100%;
 	height:20px;
 	float: top;
@@ -20,17 +20,17 @@ body {
 
 #main {
 	width:100%;
-	margin-top:20px;
+	margin-top:25px;
 	height:auto;
 	float: top;
-	overflow:auto;
 }
 
 #mainSidebar {
-	background: yellow;
 	float: left;
 	width:200px;
 	padding: 5px;
+	margin-right:5px;
+	heigth:auto;
 }
 
 #mainSidebar li {
@@ -103,11 +103,23 @@ body {
 	width:100%;
 }
 
+
+#adminViewUsersPageTopBar {
+	border-bottom: 1px solid black;
+	float:top;
+	width: 100%;
+	overflow:auto;
+}
+#adminViewUsersPageTopBar:hover {
+	background:inherit;
+}
+
 #foot {
 	width:100%;
-	background: blue;
 	float: top;
 	clear:both;
+	margin-top:5px;
+	display:none;
 }
 
 #loginbox {

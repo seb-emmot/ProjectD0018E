@@ -81,6 +81,11 @@ function printOneProduct(item, container){
 	h2 = document.createElement("h2");
 	h2.innerHTML = "Stock: "+item[4];
 	infoBox.appendChild(h2);
+	
+	h2 = document.createElement("h2");
+	h2.innerHTML = "Rating: "+item[3]+"/5";
+	infoBox.appendChild(h2);
+	
 	var div = document.createElement("div");
 	div.setAttribute('class', "productBoxBuyButton");
 	$(div).css('font-family', 'impact', 'sans-serif');
