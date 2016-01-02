@@ -11,10 +11,11 @@
 					<div id="loginbox">
 						<?php 
 						if((isset($_SESSION["registration_text"]))) {
-							echo $_SESSION["registration_text"];
+							echo $_SESSION["registration_text"] . "<br>";
 							unset($_SESSION["registration_text"]);
 						}
 						?>
+						Enter account information here:
 						<form action="registrationProcess.php" method="post">
 						Name:<br> <input type="text" name="name"><br>
 						Password:<br> <input type="text" name="password"><br>

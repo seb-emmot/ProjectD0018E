@@ -217,4 +217,11 @@ display: inline-block;
 	align: left;
 }
 
-
+#welcomeh1{
+	text-align: center;
+	font-size: 22px;
+}
+#welcomeText{
+	text-align: center;
+	font-size: 19px
+}
