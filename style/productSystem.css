@@ -80,3 +80,12 @@
 	padding-left: 15px;
 }
 
+.suggestionPic{
+	width: 33.33%;
+	max-height: 180px;
+	float:left;
+}
+
+#suggestionBox{
+	margin-top: 15px;
+}

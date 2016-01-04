@@ -58,6 +58,8 @@ function Setup(item) {	// Gets info from the server regarding product name, pric
 	ratingButton.addEventListener("click", function() {OpenRatings(descrButton, ratingButton)});
 	itemImgBox.addEventListener("click", function() {CycleImg(imgID)});
 	
+	getSuggestions(itemID);
+	
 }
 
 function CycleImg(imgID) {
@@ -121,7 +123,7 @@ function submitReview(productId){
 	var comment = $("#comment").val();
 	if(rating != null){
 		$.ajax({
-			   url: "submitReview.php",
+			   url: "../SQLcalls/submitReview.php",
 			   type: "POST",
 			   data: {productID: productId,
 				   	  Rating: rating,
@@ -149,9 +151,36 @@ function submitReview(productId){
 	}
 }
 
+//-------------suggestions-----------------------
 
-
-
+function getSuggestions(itemId){
+	$.ajax({
+		   url: "../SQLcalls/getSuggestions.php",
+		   type: "GET",
+		   data: {itemID: itemId},
+		   dataType: "json",
+		   success: function(data){
+			   var div = document.createElement("div");
+			   div.setAttribute('id', "suggestionBox");
+			   div.setAttribute('class', "productBoxStyling");
+			   div.innerHTML = "Other people who bought this item also bought theese:<br>"
+				   console.log("0");
+			   for(i=0; i < data.length; i++){
+				   var a = document.createElement("a");
+				   a.setAttribute('href', "item.php?productID="+data[i][0]);
+				   var img = document.createElement("img");
+				   img.setAttribute('class', "suggestionPic");
+				   img.setAttribute('alt', "Image");
+				   img.setAttribute('src', data[i][2]+"/"+data[i][1]+"/"+"/img/default.png");
+				   a.appendChild(img);
+				   div.appendChild(a);
+			   }
+			   box = document.getElementById("itemContentBox");
+			   box.appendChild(div);
+			   console.log("yess!");
+		   }
+	});
+}
 
 
 
