@@ -37,22 +37,22 @@
 					$sql = "";					
 					if(isset($_GET["category"])) {
 						$itemCategory = $_GET["category"];
-						$sql = "SELECT * FROM `PRODUCTS` WHERE category = '".$itemCategory."'";
+						$sql = "SELECT * FROM `PRODUCTS` WHERE active=1 AND category = '".$itemCategory."'";
 					}
 					elseif (isset($_GET["search"])) {
 						$itemSearch = $_GET["search"];
 						if ($itemSearch == "/all") {
-							$sql = "SELECT * FROM `products` WHERE 1";
+							$sql = "SELECT * FROM `products` WHERE active=1";
 						}
 						elseif ($itemSearch == "/enable:hacks")
 							header('Location: ../admin/admin.php');
 						else {
-							$sql = "SELECT * FROM `products` WHERE name LIKE '".$itemSearch."%'";
+							$sql = "SELECT * FROM `products` WHERE active=1 AND name LIKE '".$itemSearch."%'";
 						}
 						
 					}
 					else {
-						$sql = "SELECT * FROM `PRODUCTS` WHERE 1";
+						$sql = "SELECT * FROM `PRODUCTS` WHERE active=1";
 					}
 					
 					include '../resources/connect.php';

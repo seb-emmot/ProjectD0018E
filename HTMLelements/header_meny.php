@@ -10,10 +10,10 @@
 </div>
 <script>
 	var x = document.getElementById("nav-bar");
-	x.innerHTML = '<li><a href="/ProjectD0018E/products/products.php?category=testcat1">testcat1</a></li>'+
-		'<li><a href="/ProjectD0018E/products/products.php?category=testcat2">testcat2</a> </li>'+
-		'<li><a href="/ProjectD0018E">3</a> </li>'+
-		'<li><a href="/ProjectD0018E">4</a> </li>'+
-		'<li><a href="/ProjectD0018E">5</a> </li>'+
-		'<li><a href="/ProjectD0018E">6</a> </li>';
+	x.innerHTML = '<li><a href="/ProjectD0018E/products/products.php?category=vegetable">vegetable</a></li>'+
+		'<li><a href="/ProjectD0018E/products/products.php?category=fruit">fruit</a> </li>'+
+		'<li><a href="/ProjectD0018E/products/products.php?category=cheese"">cheese</a> </li>';
+		//'<li><a href="/ProjectD0018E">4</a> </li>'+
+		//'<li><a href="/ProjectD0018E">5</a> </li>'+
+		//'<li><a href="/ProjectD0018E">6</a> </li>';
 </script>

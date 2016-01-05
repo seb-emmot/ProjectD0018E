@@ -12,6 +12,7 @@ function setupAdmin() {
 	adminViewUsersButton.addEventListener("click", function() {setActive(document.getElementById("adminViewUsersPage"))});
 
 	getProducts();
+	getUsers();
 	
 }
 
@@ -66,6 +67,67 @@ function displayProducts(allProducts) {
 		document.getElementById(itemDivID).addEventListener("click", function() {editItem(this)});
 		counter++;
 	}
+}
+
+function getUsers() {
+	$.ajax({
+		   url: "SQL/getUsers.php",
+		   type: "GET",
+		   dataType: "json",
+		   success: function(user){
+			   displayUsers(user);		   
+		   }
+		 });
+}
+
+function displayUsers(allUsers) {
+	console.log("user");
+	var displayPage = document.getElementById("adminViewUsersPageContent");
+	var NUMBER_OF_ATTRIBUTES = 7;
+	
+	var counter = 0;
+	var numberOfUsers = allUsers.length/NUMBER_OF_ATTRIBUTES;
+	
+	while(counter<numberOfUsers) {
+		var userDiv = document.createElement("div");
+		userDiv.setAttribute("id", "user#"+allUsers[0+NUMBER_OF_ATTRIBUTES*counter]);
+				
+		var list = document.createElement("ul");
+		list.setAttribute("class", "product")
+		
+		var id = document.createElement("li");
+		id.innerHTML = allUsers[0+NUMBER_OF_ATTRIBUTES*counter];
+		list.appendChild(id);
+		
+		var e_mail = document.createElement("li");
+		e_mail.innerHTML = allUsers[1+NUMBER_OF_ATTRIBUTES*counter];
+		list.appendChild(e_mail);
+		
+		var password = document.createElement("li");
+		password.innerHTML = allUsers[2+NUMBER_OF_ATTRIBUTES*counter];
+		list.appendChild(password);
+		
+		var reg_date = document.createElement("li");
+		reg_date.setAttribute("class", "productExtra");
+		reg_date.innerHTML = allUsers[3+NUMBER_OF_ATTRIBUTES*counter];
+		list.appendChild(reg_date);
+		
+		var fname = document.createElement("li");
+		fname.innerHTML = allUsers[4+NUMBER_OF_ATTRIBUTES*counter];
+		list.appendChild(fname);
+		
+		var lname = document.createElement("li");
+		lname.innerHTML = allUsers[5+NUMBER_OF_ATTRIBUTES*counter];
+		list.appendChild(lname);
+		
+		var address = document.createElement("li");
+		address.innerHTML = allUsers[6+NUMBER_OF_ATTRIBUTES*counter];
+		list.appendChild(address);
+		
+		userDiv.appendChild(list);		
+		displayPage.appendChild(userDiv);
+		counter++;
+	}	
 }
 
 function editItem(itemElement) {	//triggered when clicking on an item in the "view products" page
@@ -179,9 +241,4 @@ function updateProduct(productID) {
 			   alert("success");
 		   }
 	});
-}
-
-
-function displayUsers(allProducts) {
-	
 }

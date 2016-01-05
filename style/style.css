@@ -6,7 +6,7 @@ background: white;
 }
 
 #navigation{
-background:url(img/menuback.png);
+background: black;
 width:100%;
 height:30px;
 border-bottom: 1px solid black;
@@ -44,7 +44,7 @@ text-align:center;
 }
 
 #sliderbox{
-background:url(style/img/sliderback.png);
+background:black;
 min-width:960px;
 height:500px;
 margin:0 auto;
@@ -67,7 +67,7 @@ float:top;
 }
 
 #footer{
-background: red;
+background: #FF4040;
 min-width: 1020px;
 min-height: 200px;
 border-top: 1px solid black;

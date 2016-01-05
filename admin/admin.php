@@ -15,7 +15,7 @@ else {
 <body>
 	<div id="wrapper">
 		<div id="top" class="productBoxStyling">
-			This is the adminpage, you are logged in as Admin: <?php echo $_SESSION["username"]?>
+			This is the adminpage, you are logged in as Admin: <?php echo $_SESSION["adminname"]?>
 		</div>
 		<div id="main">
 			<div id="mainSidebar" class="productBoxStyling">
@@ -23,6 +23,7 @@ else {
 					<li id="adminAddProduct">Add Product</li>
 					<li id="adminViewProducts">View Products</li>
 					<li id="adminViewUsers">View Users</li>
+					<a href="../" style="color:black;hover:none;text-decoration:none"><li>Back to Homepage</li></a>
 				</ul>
 			</div>
 			<div id="mainContent" class="productBoxStyling">
@@ -38,7 +39,7 @@ else {
 					<input id="submit" type="submit" value="Submit" name ="submit">
 					</form>
 				</div>
-				<div id="adminViewProductsPage" class="active">
+				<div id="adminViewProductsPage" class="inActive">
 					<div id="adminViewProductsPageTopBar" class="product">
 						<ul>
 							<li>ID</li>
@@ -54,17 +55,20 @@ else {
 					<div id="adminViewProductsPageContent">
 					</div>
 				</div>
-				<div id="adminViewUsersPage" class="inActive">
+				<div id="adminViewUsersPage" class="active">
 					<div i="adminViewUsersPageTopBar" class="product">
 						<ul>
 							<li>ID</li>
 							<li>e-mail</li>
 							<li>password</li>
-							<li>registration date</li>
+							<li class="productExtra">registration date</li>
 							<li>first name</li>
 							<li>last name</li>
+							<li>Address</li>
 						</ul>
-					</div>				
+					</div>
+					<div id="adminViewUsersPageContent">
+					</div>		
 				</div>
 			</div>
 		</div>

@@ -152,18 +152,30 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
+-- Adding admin account
+INSERT INTO `admin_accounts`(`name`, `password`) VALUES ("admin", "lol123");
 
+-- Adding users to database
+
+INSERT INTO `accounts`(`e_mail`, `password`) VALUES ("sebbe", "123");
+INSERT INTO `accounts`(`e_mail`, `password`) VALUES ("hanz", "123");
+INSERT INTO `accounts`(`e_mail`, `password`) VALUES ("testuser", "1337");
 
 
 -- Adding products to Database
-INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat1", "onion", "10", "5", "1");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat1", "garlic", "20", "4", "1");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat1", "mustard", "54", "7", "1");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat1", "tomato", "33", "2", "1");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat2", "cheese", "26", "9", "1");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat2", "cucumber", "12", "22", "1");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat2", "squash", "33", "2", "1");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat2", "pizza", "26", "9", "1");
-INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("testcat1", "mozzarella", "12", "22", "1");
-
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("vegetable", "onion", "10", "5", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("vegetable", "garlic", "20", "4", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("fruit", "banana", "54", "7", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("vegetable", "tomato", "33", "2", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("fruit", "watermelon", "26", "9", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("vegetable", "cucumber", "12", "22", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("vegetable", "squash", "33", "2", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("fruit", "apple red", "16", "99", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("fruit", "apple green", "15", "89", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("fruit", "apple yellow", "17", "97", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("fruit", "apple blue", "9", "79", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("cheese", "mozzarella", "12", "22", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("cheese", "brie", "12", "22", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("cheese", "swiss cheese", "12", "2", "1");
+INSERT INTO `products`(`category`, `name`, `price`, `stock`, `active`) VALUES ("cheese", "moldy cheese", "12", "62", "0");
 

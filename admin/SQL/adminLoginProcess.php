@@ -10,7 +10,7 @@
 		//confirmed.. establish session variables for user
 		$info = $account->fetch_assoc();
 		$_SESSION["id"] = $info["admin_id"];
-		$_SESSION["username"] = $name;
+		$_SESSION["adminname"] = $name;
 		$_SESSION["admin"] = true;
 
 		header("Location: ../admin.php");
