@@ -123,7 +123,7 @@ function submitReview(productId){
 	var comment = $("#comment").val();
 	if(rating != null){
 		$.ajax({
-			   url: "../SQLcalls/submitReview.php",
+			   url: "submitReview.php",
 			   type: "POST",
 			   data: {productID: productId,
 				   	  Rating: rating,
@@ -163,9 +163,10 @@ function getSuggestions(itemId){
 			   var div = document.createElement("div");
 			   div.setAttribute('id', "suggestionBox");
 			   div.setAttribute('class', "productBoxStyling");
-			   div.innerHTML = "Other people who bought this item also bought theese:<br>"
-				   console.log("0");
+			   div.innerHTML = "<b>Other people who bought this item also bought theese:</b><br>";
 			   for(i=0; i < data.length; i++){
+				   var picDiv = document.createElement("div");
+				   picDiv.setAttribute('class', "suggestionPicDiv");
 				   var a = document.createElement("a");
 				   a.setAttribute('href', "item.php?productID="+data[i][0]);
 				   var img = document.createElement("img");
@@ -173,11 +174,14 @@ function getSuggestions(itemId){
 				   img.setAttribute('alt', "Image");
 				   img.setAttribute('src', data[i][2]+"/"+data[i][1]+"/"+"/img/default.png");
 				   a.appendChild(img);
-				   div.appendChild(a);
+				   var p = document.createElement("p");
+				   p.innerHTML = data[i][1];
+				   picDiv.appendChild(a);
+				   picDiv.appendChild(p);
+				   div.appendChild(picDiv);
 			   }
 			   box = document.getElementById("itemContentBox");
 			   box.appendChild(div);
-			   console.log("yess!");
 		   }
 	});
 }

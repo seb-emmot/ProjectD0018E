@@ -21,6 +21,18 @@ border-bottom: 1px solid black;
 	float: left;
 }
 
+#logo-container img{
+	width: 80%;
+	height: 100%;
+}
+
+#logo-container p{
+	text-align: right;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 16px;
+}
+
 #logo-container:hover {
 	cursor: hand;
 }

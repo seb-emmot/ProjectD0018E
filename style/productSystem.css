@@ -80,12 +80,22 @@
 	padding-left: 15px;
 }
 
+#suggestionBox{
+	margin-top: 15px;
+}
 .suggestionPic{
-	width: 33.33%;
+	width: 100%;
 	max-height: 180px;
 	float:left;
 }
 
-#suggestionBox{
-	margin-top: 15px;
+.suggestionPicDiv{
+	display: inline-block;
+	text-align: justify;
+	width: 33.33%;
+		
+}
+.suggestionPicDiv p{
+	text-align: center;
+	
 }

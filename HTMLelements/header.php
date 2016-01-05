@@ -2,7 +2,7 @@
 <div id="header">
 	<div id="header-container">
 		<div id="logo-container">
-				<div id="logo"></div>
+				<div id="logo"><img alt="Logo" src="../resources/pictures/apple.png"><p>E<br>-<br>M<br>A<br>R<br>T</p></div>
 		</div>
 		<div id="searchfieldContainer">
 			<div id="searchfield">

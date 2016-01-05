@@ -18,8 +18,13 @@ function printProductPage(itemArray, sorting){
 	else {
 		var colIndex = 1;
 	}
+	if(colIndex == 3){
+		var sortedItemArray = sortByColumnByLargest(itemArray, colIndex);
+	}
+	else{
+		var sortedItemArray = sortByColumnBySmallest(itemArray, colIndex);
+	}
 	
-	var sortedItemArray = sortByColumn(itemArray, colIndex);
 	
 	var container = document.getElementById("main");
 	container.innerHTML = "";
@@ -102,7 +107,7 @@ function printOneProduct(item, container){
 	container.appendChild(productBox);
 }
 
-function sortByColumn(a, colIndex){
+function sortByColumnBySmallest(a, colIndex){
 
     a.sort(sortFunction);
 
@@ -112,6 +117,22 @@ function sortByColumn(a, colIndex){
         }
         else {
             return (a[colIndex] < b[colIndex]) ? -1 : 1;
+        }
+    }
+
+    return a;
+}
+
+function sortByColumnByLargest(a, colIndex){
+
+    a.sort(sortFunction);
+
+    function sortFunction(a, b) {
+        if (a[colIndex] === b[colIndex]) {
+            return 0;
+        }
+        else {
+            return (a[colIndex] < b[colIndex]) ? 1 : -1;
         }
     }
 

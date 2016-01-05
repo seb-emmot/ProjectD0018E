@@ -20,3 +20,9 @@ function orderConfirmed() {
 	var element = document.getElementById("cartCheckout");
 	element.parentNode.removeChild(element);
 }
+
+function outOfStock(){
+	var div = document.getElementById("checkoutInfo");
+	div.innerHTML += "<br>Notice that you have some products in your order that are out of stock.<br>" +
+			"Theese will have a delayed shipping time.<br>"
+}
