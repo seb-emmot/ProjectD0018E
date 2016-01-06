@@ -15,8 +15,10 @@ while ($orderRow = $similarOrders->fetch_assoc()){
 			$allItems[$index][1] = $allItems[$index][1] + 1;
 		}
 		else {
-			$tuple = [$itemRow["item_id"], 1];
-			array_push($allItems, $tuple);
+			if ($itemRow["item_id"] != $item_id){
+				$tuple = [$itemRow["item_id"], 1];
+				array_push($allItems, $tuple);
+			}
 		}	
 	}
 	
