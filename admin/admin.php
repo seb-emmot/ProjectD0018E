@@ -23,6 +23,8 @@ else {
 					<li id="adminAddProduct">Add Product</li>
 					<li id="adminViewProducts">View Products</li>
 					<li id="adminViewUsers">View Users</li>
+					<li id="adminViewOrders">View Orders</li>
+					
 					<a href="../" style="color:black;hover:none;text-decoration:none"><li>Back to Homepage</li></a>
 				</ul>
 			</div>
@@ -55,7 +57,7 @@ else {
 					<div id="adminViewProductsPageContent">
 					</div>
 				</div>
-				<div id="adminViewUsersPage" class="active">
+				<div id="adminViewUsersPage" class="inActive">
 					<div i="adminViewUsersPageTopBar" class="product">
 						<ul>
 							<li>ID</li>
@@ -70,6 +72,20 @@ else {
 					<div id="adminViewUsersPageContent">
 					</div>		
 				</div>
+				<div id="adminViewOrdersPage" class="active">
+					<div i="adminViewOrdersPageTopBar" class="product">
+						<ul>
+							<li>order id</li>
+							<li>username</li>
+							<li>price paid</li>
+							<li>item</li>
+							<li>date</li>
+						</ul>
+					</div>
+					<div id="adminViewOrdersPageContent">
+					</div>		
+				</div>
+				
 			</div>
 		</div>
 	</div>

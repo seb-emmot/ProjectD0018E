@@ -10,9 +10,13 @@ function setupAdmin() {
 	
 	var adminViewUsersButton = document.getElementById("adminViewUsers");	
 	adminViewUsersButton.addEventListener("click", function() {setActive(document.getElementById("adminViewUsersPage"))});
+	
+	var adminViewOrdersButton = document.getElementById("adminViewOrders");	
+	adminViewOrdersButton.addEventListener("click", function() {setActive(document.getElementById("adminViewOrdersPage"))});
 
 	getProducts();
 	getUsers();
+	getOrders();
 	
 }
 
@@ -127,6 +131,61 @@ function displayUsers(allUsers) {
 		userDiv.appendChild(list);		
 		displayPage.appendChild(userDiv);
 		counter++;
+	}	
+}
+
+function getOrders() {
+	$.ajax({
+		   url: "SQL/getOrders.php",
+		   type: "GET",
+		   dataType: "json",
+		   success: function(allOrders){
+			   displayOrders(allOrders);		   
+		   }
+		 });
+}
+
+function displayOrders(allOrders) {
+	console.log("order");
+	var displayPage = document.getElementById("adminViewOrdersPageContent");
+	var NUMBER_OF_ATTRIBUTES = 3;
+	
+	var pointer = 0;
+	var numberOfEntries = allOrders.length;
+	
+	while(pointer<numberOfEntries) {
+		var userDiv = document.createElement("div");
+		userDiv.setAttribute("id", "order#"+allOrders[pointer]);
+				
+		var list = document.createElement("ul");
+		list.setAttribute("class", "product")
+		
+		var id = document.createElement("li");
+		id.innerHTML = allOrders[pointer];
+		list.appendChild(id);
+		
+		var user_id = document.createElement("li");
+		user_id.innerHTML = allOrders[pointer+1];
+		list.appendChild(user_id);
+		
+		var price = document.createElement("li");
+		price.innerHTML = "$ "+allOrders[pointer+2];
+		list.appendChild(price);
+		
+		var items = document.createElement("li");
+		
+		while(allOrders[pointer] != "null") {
+			var item = document.createElement("p");
+			item.innerHTML = allOrders[pointer+3];	
+			items.appendChild(item);
+			pointer = pointer+3;
+			
+		}
+		list.appendChild(items);
+				
+		userDiv.appendChild(list);		
+		displayPage.appendChild(userDiv);
+		pointer++;
 	}	
 }
 
