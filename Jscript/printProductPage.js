@@ -8,23 +8,20 @@
 function printProductPage(itemArray, sorting){
 	if(sorting == "name"){
 		var colIndex = 1;
+		var sortedItemArray = sortByColumnBySmallest(itemArray, colIndex);
 	}
 	else if(sorting == "price"){
 		var colIndex = 2;
+		var sortedItemArray = sortByColumnByInt(itemArray, colIndex);
 	}
 	else if(sorting == "rating"){
 		var colIndex = 3;
+		var sortedItemArray = sortByColumnByLargest(itemArray, colIndex);
 	}
 	else {
 		var colIndex = 1;
-	}
-	if(colIndex == 3){
-		var sortedItemArray = sortByColumnByLargest(itemArray, colIndex);
-	}
-	else{
 		var sortedItemArray = sortByColumnBySmallest(itemArray, colIndex);
 	}
-	
 	
 	var container = document.getElementById("main");
 	container.innerHTML = "";
@@ -134,6 +131,17 @@ function sortByColumnByLargest(a, colIndex){
         else {
             return (a[colIndex] < b[colIndex]) ? 1 : -1;
         }
+    }
+
+    return a;
+}
+
+function sortByColumnByInt(a, colIndex){
+
+    a.sort(sortFunction);
+
+    function sortFunction(a, b) {
+        return a[colIndex] - b[colIndex];
     }
 
     return a;
